@@ -60,12 +60,12 @@ public class LoginActivity extends Activity
 		setContentView(R.layout.activity_login);		//  设置布局文件为activity_login.xml
 		
 		// 得到两个EditText对象
-		this.editTextUsername = (EditText)findViewById(R.id.editTextUsername);
-		this.editTextPassword = (EditText)findViewById(R.id.editTextPassword);
+		//this.editTextUsername = (EditText)findViewById(R.id.editTextUsername);
+		//this.editTextPassword = (EditText)findViewById(R.id.editTextPassword);
 		
 		// 得到两个button对象
-		this.buttonLogin = (Button)findViewById(R.id.buttonLogin);
-		this.buttonCancle = (Button)findViewById(R.id.buttonCancle);
+		//this.buttonLogin = (Button)findViewById(R.id.buttonLogin);
+		//this.buttonCancle = (Button)findViewById(R.id.buttonCancle);
 		
 /*
 		//this.m_socketClient = new SocketClient();
@@ -145,7 +145,7 @@ public class LoginActivity extends Activity
            Intent intentdump =new Intent();
            intentdump.putExtra("username", editTextUsername.getText().toString());
            intentdump.putExtra("password", editTextPassword.getText().toString());
-           intentdump.setClass(LoginActivity.this, MainActivity.class);
+           //intentdump.setClass(LoginActivity.this, MainActivity.class);
            
            LoginActivity.this.startActivity(intentdump);
        }
