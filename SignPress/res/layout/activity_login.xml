@@ -45,12 +45,12 @@
                 android:layout_marginLeft="10dp" />
                             
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/editTextUsername"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="#00ffffff"
                 android:hint="@string/username"
-                android:inputType="number"
+                android:inputType="text"
                 android:paddingStart="20dp"
                 android:paddingLeft="20dp" 
                 android:paddingRight="0dp"
@@ -79,7 +79,7 @@
                 android:layout_marginLeft="10dp" />
 		    
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="#00ffffff"
@@ -94,7 +94,7 @@
     </LinearLayout>
 
      <Button
-         android:id="@+id/buton1"
+         android:id="@+id/buttonLogin"
          android:layout_width="270dp"
          android:layout_height="50dp"
          android:layout_alignParentBottom="true"

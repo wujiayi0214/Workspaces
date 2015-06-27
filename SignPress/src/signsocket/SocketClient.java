@@ -23,7 +23,7 @@ public class SocketClient
     public static DataOutputStream out=null;
     public static DataInputStream in=null;
     //public static BufferedReader inbuff=null;
-    private static final String SERVER_IP   = "10.0.213.117"; //"192.168.1.200";
+    private static final String SERVER_IP   = "10.0.51.141"; //"192.168.1.200";
     private static final int    SERVER_PORT      = 6666;//7777;
     
     public static Boolean create()

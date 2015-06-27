@@ -1,4 +1,4 @@
-package signapp;
+package com.example.signpress;
 
 import signdata.Employee;
 import signdata.User;

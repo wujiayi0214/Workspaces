@@ -437,7 +437,7 @@ int id activity_chooser_view_content 0x7f090026
 int id alertTitle 0x7f090030
 int id always 0x7f090019
 int id beginning 0x7f090020
-int id buton1 0x7f090055
+int id buttonLogin 0x7f090055
 int id buttonPanel 0x7f090036
 int id cancel_action 0x7f090057
 int id checkbox 0x7f090038
@@ -451,6 +451,8 @@ int id default_activity_button 0x7f090029
 int id dialog 0x7f09001e
 int id disableHome 0x7f09000d
 int id dropdown 0x7f09001f
+int id editTextPassword 0x7f090054
+int id editTextUsername 0x7f090052
 int id edit_query 0x7f090042
 int id end 0x7f090021
 int id end_padder 0x7f090062
@@ -475,7 +477,6 @@ int id never 0x7f09001c
 int id none 0x7f09000f
 int id normal 0x7f09000b
 int id parentPanel 0x7f09002d
-int id password 0x7f090054
 int id passwordlogo 0x7f090053
 int id progress_circular 0x7f090007
 int id progress_horizontal 0x7f090008
@@ -513,7 +514,6 @@ int id title_template 0x7f09002f
 int id topPanel 0x7f09002e
 int id up 0x7f090001
 int id useLogo 0x7f090013
-int id username 0x7f090052
 int id usernamelogo 0x7f090051
 int id withText 0x7f09001d
 int id wrap_content 0x7f090009
