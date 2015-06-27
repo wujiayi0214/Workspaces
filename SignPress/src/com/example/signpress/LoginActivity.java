@@ -12,6 +12,7 @@ import java.net.Socket;
 
 
 
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,7 +26,6 @@ import android.view.View.OnClickListener;
 
 import android.app.Activity;
 import android.content.Intent;
-import signapp.AppContext;
 import signdata.User;
 import signsocket.SocketClient;
 
@@ -43,9 +43,7 @@ public class LoginActivity extends Activity
 	// 登录按钮
 	private Button buttonLogin;
 	
-	// 取消按钮
-	private Button buttonCancle;
-    
+
 	
 	private PrintWriter output ;
     
@@ -60,14 +58,13 @@ public class LoginActivity extends Activity
 		setContentView(R.layout.activity_login);		//  设置布局文件为activity_login.xml
 		
 		// 得到两个EditText对象
-		//this.editTextUsername = (EditText)findViewById(R.id.editTextUsername);
-		//this.editTextPassword = (EditText)findViewById(R.id.editTextPassword);
+		this.editTextUsername = (EditText)findViewById(R.id.editTextUsername);
+		this.editTextPassword = (EditText)findViewById(R.id.editTextPassword);
 		
 		// 得到两个button对象
-		//this.buttonLogin = (Button)findViewById(R.id.buttonLogin);
-		//this.buttonCancle = (Button)findViewById(R.id.buttonCancle);
+		this.buttonLogin = (Button)findViewById(R.id.buttonLogin);
 		
-/*
+
 		//this.m_socketClient = new SocketClient();
 		SocketClient.create();				// 创建套接字
 		
@@ -95,8 +92,7 @@ public class LoginActivity extends Activity
 				}
 			}
 		});
-		*/
-		
+
 	}
 
 	@Override
