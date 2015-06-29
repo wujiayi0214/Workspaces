@@ -84,6 +84,20 @@ public class LoginActivity extends Activity
 					AppContext app =  new AppContext();
 					app.setUser(user);
 					
+					if(SocketClient.LoginRequest(user) == true)
+					{
+						 Intent intent = new Intent();  
+			             //设置Intent的class属性，跳转到SecondActivity  
+			             intent.setClass(LoginActivity.this, TestActivity.class);  
+			             //为intent添加额外的信息  
+			             intent.putExtra("Usename", username);  
+			             intent.putExtra("Password", password); 
+			             //启动Activity  
+			             startActivity(intent);  
+						
+					}
+					
+					
 					
 				} 
 				catch (Exception e) 

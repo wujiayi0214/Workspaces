@@ -6,6 +6,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
+import signdata.User;
+
 
 
 
@@ -92,5 +94,16 @@ public class SocketClient
 
         }
     }
+    
+    public static boolean LoginRequest(User user)
+    {
+    	//  发送登录请求到服务器LOGIN_REQUEST;length;{User}
+    	
+    	//  等待服务器的数据返回
+    	
+    	return true;
+    }
+    
+
 }
 
