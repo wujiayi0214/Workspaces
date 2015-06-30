@@ -1,0 +1,5 @@
+package signsocket;
+
+public enum ClientRequest {
+
+}

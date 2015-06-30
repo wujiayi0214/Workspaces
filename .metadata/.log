@@ -1,4 +1,4 @@
-!SESSION 2015-06-27 10:41:51.425 -----------------------------------------------
+!SESSION 2015-06-30 09:17:16.760 -----------------------------------------------
 eclipse.buildId=4.4.1.M20140925-0400
 java.version=1.7.0
 java.vendor=Oracle Corporation
@@ -7,485 +7,214 @@ Framework arguments:  -product org.eclipse.epp.package.java.product
 Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.java.product
 
 This is a continuation of log file G:\[B]CodeRuntimeLibrary\[B]MyJavaSource\Workspaces\.metadata\.bak_0.log
-Created Time: 2015-06-27 10:45:44.613
+Created Time: 2015-06-30 16:51:42.269
 
-!ENTRY org.eclipse.core.resources 4 2 2015-06-27 10:45:44.618
-!MESSAGE 从插件调用代码时出现问题：“org.eclipse.core.resources”。
+!ENTRY org.eclipse.ui.navigator 4 0 2015-06-30 16:51:42.270
+!MESSAGE Cannot add P/SignPress to the list of segments in P/SignPress::src [in SignPress]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.signpress (...)
+  signdata (...)
+  signsocket (...)::com.example.signpress [in src [in SignPress]]
+  [Working copy] LoginActivity.java
+    package com.example.signpress
+    import java.io.BufferedWriter
+    import java.io.IOException
+    import java.io.OutputStreamWriter
+    import java.io.PrintWriter
+    import java.net.InetAddress
+    import java.net.Socket
+    import android.os.AsyncTask
+    import android.os.Bundle
+    import android.os.StrictMode
+    import android.view.Menu
+    import android.view.MenuItem
+    import android.widget.Button
+    import android.widget.EditText
+    import android.view.View
+    import android.view.View.OnClickListener
+    import android.annotation.SuppressLint
+    import android.app.Activity
+    import android.content.Context
+    import android.content.Intent
+    import signdata.User
+    import signsocket.ClientRequest
+    import signsocket.NetManager
+    import signsocket.SocketClient
+    import signsocket.SocketMessage
+    import signsocket.SocketThreadManager
+    class LoginActivity
+      EditText editTextUsername
+      EditText editTextPassword
+      Button buttonLogin
+      PrintWriter output
+      SocketClient m_socketClient
+      Context s_context
+      void onCreate(Bundle)
+        class <anonymous #1>
+          void onClick(View)
+          void loginAsyncTask()
+            class <anonymous #1>
+              void onPostExecute(Object)
+              Object doInBackground(String ...)
+      boolean onCreateOptionsMenu(Menu)
+      boolean onOptionsItemSelected(MenuItem)
+      void Connect()
+  [Working copy] TestActivity.java
+    package com.example.signpress
+    import android.app.Activity
+    import android.graphics.Color
+    import android.os.Bundle
+    import android.view.Gravity
+    import android.view.View
+    import android.view.ViewGroup
+    import android.view.Window
+    import android.widget.AbsListView
+    import android.widget.BaseExpandableListAdapter
+    import android.widget.ExpandableListAdapter
+    import android.widget.ExpandableListView
+    import android.widget.ExpandableListView.OnChildClickListener
+    import android.widget.LinearLayout
+    import android.widget.TextView
+    import android.widget.Toast
+    class TestActivity
+      void onCreate(Bundle)
+        class <anonymous #1>
+          String[] generalsTypes
+          String[][] generals
+          TextView getTextView()
+          int getGroupCount()
+          Object getGroup(int)
+          long getGroupId(int)
+          int getChildrenCount(int)
+          Object getChild(int, int)
+          long getChildId(int, int)
+          boolean hasStableIds()
+          View getGroupView(int, boolean, View, ViewGroup)
+          View getChildView(int, int, boolean, View, ViewGroup)
+          boolean isChildSelectable(int, int)
+        class <anonymous #2>
+          boolean onChildClick(ExpandableListView, View, int, int, long)
+  [Working copy] AppContext.java
+    package com.example.signpress
+    import signdata.Employee
+    import signdata.User
+    import signsocket.SocketClient
+    import android.app.Application
+    class AppContext
+      SocketClient m_socketClient
+      SocketClient getSocketClient(SocketClient)
+      void SetSocketClient(SocketClient)
+      Employee m_employee
+      Employee getEmployee()
+      void setEmployee(Employee)
+      User m_user
+      User getUser()
+      void setUser(User):: as a parent.
 !STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.PreCompilerBuilder.build(PreCompilerBuilder.java:676)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-
-!ENTRY org.eclipse.core.resources 4 75 2015-06-27 10:45:44.760
-!MESSAGE 在构建期间出错。
-!SUBENTRY 1 com.android.ide.eclipse.adt 4 75 2015-06-27 10:45:44.760
-!MESSAGE 在项目“SignPressAndroid”中运行构建器“Android Pre Compiler”时出错。
-!STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.PreCompilerBuilder.build(PreCompilerBuilder.java:676)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-
-!ENTRY org.eclipse.core.resources 4 2 2015-06-27 10:46:24.859
-!MESSAGE 从插件调用代码时出现问题：“org.eclipse.core.resources”。
-!STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.PreCompilerBuilder.build(PreCompilerBuilder.java:676)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-
-!ENTRY org.eclipse.core.resources 4 75 2015-06-27 10:46:24.863
-!MESSAGE 在构建期间出错。
-!SUBENTRY 1 com.android.ide.eclipse.adt 4 75 2015-06-27 10:46:24.863
-!MESSAGE 在项目“SignPressAndroid”中运行构建器“Android Pre Compiler”时出错。
-!STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.PreCompilerBuilder.build(PreCompilerBuilder.java:676)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-
-!ENTRY org.eclipse.core.resources 4 2 2015-06-27 10:48:01.991
-!MESSAGE 从插件调用代码时出现问题：“org.eclipse.core.resources”。
-!STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.PreCompilerBuilder.build(PreCompilerBuilder.java:676)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:48:02.117
-!MESSAGE Unknown error: java.lang.NullPointerException
-!STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.ChangedFileSetHelper.getRelativePath(ChangedFileSetHelper.java:188)
-	at com.android.ide.eclipse.adt.internal.build.builders.ChangedFileSetHelper.getRelativeAndroidOut(ChangedFileSetHelper.java:193)
-	at com.android.ide.eclipse.adt.internal.build.builders.ChangedFileSetHelper.getFullResCfs(ChangedFileSetHelper.java:156)
-	at com.android.ide.eclipse.adt.internal.build.builders.PostCompilerBuilder.build(PostCompilerBuilder.java:298)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:48:02.129
-!MESSAGE Can't find file G:\[B]CodeRuntimeLibrary\[B]MyJavaSource\Workspaces\appcompat_v7\.classpath in workspace
-
-!ENTRY org.eclipse.core.resources 4 75 2015-06-27 10:48:02.140
-!MESSAGE 在构建期间出错。
-!SUBENTRY 1 com.android.ide.eclipse.adt 4 75 2015-06-27 10:48:02.141
-!MESSAGE 在项目“SignPressAndroid”中运行构建器“Android Pre Compiler”时出错。
-!STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.PreCompilerBuilder.build(PreCompilerBuilder.java:676)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-
-!ENTRY org.eclipse.core.resources 4 2 2015-06-27 10:48:07.965
-!MESSAGE 从插件调用代码时出现问题：“org.eclipse.core.resources”。
-!STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.PreCompilerBuilder.build(PreCompilerBuilder.java:676)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-
-!ENTRY org.eclipse.core.resources 4 75 2015-06-27 10:48:07.968
-!MESSAGE 在构建期间出错。
-!SUBENTRY 1 com.android.ide.eclipse.adt 4 75 2015-06-27 10:48:07.969
-!MESSAGE 在项目“SignPressAndroid”中运行构建器“Android Pre Compiler”时出错。
-!STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.PreCompilerBuilder.build(PreCompilerBuilder.java:676)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:50:02.493
-!MESSAGE activity_login.xml: Failed to find style 'textViewStyle' in current theme
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:50:02.555
-!MESSAGE activity_login.xml: Failed to find style 'textViewStyle' in current theme
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:50:02.557
-!MESSAGE activity_login.xml: Failed to find style 'textViewStyle' in current theme
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:50:02.661
-!MESSAGE activity_login.xml: Failed to find style 'textViewStyle' in current theme
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:50:19.887
-!MESSAGE activity_login.xml: Failed to find style 'textViewStyle' in current theme
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:50:19.917
-!MESSAGE activity_login.xml: Failed to find style 'textViewStyle' in current theme
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:50:19.920
-!MESSAGE activity_login.xml: Failed to find style 'textViewStyle' in current theme
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:50:19.965
-!MESSAGE activity_login.xml: Failed to find style 'textViewStyle' in current theme
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:55:44.095
-!MESSAGE Failed to load properties file for project 'SignPressAndroid'
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:55:44.101
-!MESSAGE 
-!STACK 1
-org.eclipse.core.runtime.CoreException: 该文件未与本地文件系统同步。
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBuffer.commitFileBufferContent(ResourceTextFileBuffer.java:338)
-	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.commit(ResourceFileBuffer.java:327)
-	at org.eclipse.ltk.core.refactoring.TextFileChange.commit(TextFileChange.java:237)
-	at org.eclipse.ltk.core.refactoring.TextChange.perform(TextChange.java:240)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard.generateActivity(NewProjectWizard.java:424)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard.access$5(NewProjectWizard.java:401)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard$2.populate(NewProjectWizard.java:354)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:759)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$1(NewProjectCreator.java:712)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$5.run(NewProjectCreator.java:914)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2295)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.create(NewProjectCreator.java:933)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard.performFinish(NewProjectWizard.java:359)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.TemplateWizard$1.run(TemplateWizard.java:201)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-!SUBENTRY 1 org.eclipse.core.filebuffers 2 274 2015-06-27 10:55:44.104
-!MESSAGE 该文件未与本地文件系统同步。
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:55:44.106
-!MESSAGE 
-!STACK 0
-java.lang.reflect.InvocationTargetException
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard.generateActivity(NewProjectWizard.java:427)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard.access$5(NewProjectWizard.java:401)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard$2.populate(NewProjectWizard.java:354)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:759)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$1(NewProjectCreator.java:712)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$5.run(NewProjectCreator.java:914)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2295)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.create(NewProjectCreator.java:933)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard.performFinish(NewProjectWizard.java:359)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.TemplateWizard$1.run(TemplateWizard.java:201)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-Caused by: org.eclipse.core.runtime.CoreException: 该文件未与本地文件系统同步。
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBuffer.commitFileBufferContent(ResourceTextFileBuffer.java:338)
-	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.commit(ResourceFileBuffer.java:327)
-	at org.eclipse.ltk.core.refactoring.TextFileChange.commit(TextFileChange.java:237)
-	at org.eclipse.ltk.core.refactoring.TextChange.perform(TextChange.java:240)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard.generateActivity(NewProjectWizard.java:424)
-	... 11 more
-Root exception:
-org.eclipse.core.runtime.CoreException: 该文件未与本地文件系统同步。
-	at org.eclipse.core.internal.filebuffers.ResourceTextFileBuffer.commitFileBufferContent(ResourceTextFileBuffer.java:338)
-	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.commit(ResourceFileBuffer.java:327)
-	at org.eclipse.ltk.core.refactoring.TextFileChange.commit(TextFileChange.java:237)
-	at org.eclipse.ltk.core.refactoring.TextChange.perform(TextChange.java:240)
-	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard.generateActivity(NewProjectWizard.java:424)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard.access$5(NewProjectWizard.java:401)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard$2.populate(NewProjectWizard.java:354)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.createEclipseProject(NewProjectCreator.java:759)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.access$1(NewProjectCreator.java:712)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator$5.run(NewProjectCreator.java:914)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2295)
-	at com.android.ide.eclipse.adt.internal.wizards.newproject.NewProjectCreator.create(NewProjectCreator.java:933)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.NewProjectWizard.performFinish(NewProjectWizard.java:359)
-	at com.android.ide.eclipse.adt.internal.wizards.templates.TemplateWizard$1.run(TemplateWizard.java:201)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:55:44.118
-!MESSAGE Failed to load properties file for project 'SignPressAndroid'
-
-!ENTRY org.eclipse.jdt.core 4 969 2015-06-27 10:56:08.379
-!MESSAGE appcompat_v7 不存在
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:59:06.157
-!MESSAGE Failed to load properties file for project 'SignPressAndroid'
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 10:59:06.200
-!MESSAGE Failed to load properties file for project 'SignPressAndroid'
-
-!ENTRY org.eclipse.jdt.core 4 969 2015-06-27 10:59:30.617
-!MESSAGE appcompat_v7 不存在
-
-!ENTRY org.eclipse.jdt.core 4 969 2015-06-27 10:59:30.755
-!MESSAGE appcompat_v7 不存在
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 11:02:06.833
-!MESSAGE 
-!STACK 1
-org.eclipse.core.internal.resources.ResourceException: 资源“/SignPress/res”不存在。
-	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:341)
-	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:215)
-	at org.eclipse.core.internal.resources.Container.members(Container.java:266)
-	at org.eclipse.core.internal.resources.Container.members(Container.java:249)
-	at com.android.ide.eclipse.adt.internal.sdk.Sdk$7.run(Sdk.java:1485)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-!SUBENTRY 1 org.eclipse.core.resources 4 368 2015-06-27 11:02:06.833
-!MESSAGE 资源“/SignPress/res”不存在。
-!SESSION 2015-06-27 11:10:14.877 -----------------------------------------------
-eclipse.buildId=4.4.1.M20140925-0400
-java.version=1.7.0
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.m2e.logback.configuration 2 0 2015-06-27 11:10:24.961
-!MESSAGE Exception while setting up logging:org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
-!STACK 0
-java.lang.ClassCastException: org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
-	at org.eclipse.m2e.logback.configuration.LogHelper.logJavaProperties(LogHelper.java:26)
-	at org.eclipse.m2e.logback.configuration.LogPlugin.loadConfiguration(LogPlugin.java:189)
-	at org.eclipse.m2e.logback.configuration.LogPlugin.configureLogback(LogPlugin.java:144)
-	at org.eclipse.m2e.logback.configuration.LogPlugin.access$2(LogPlugin.java:107)
-	at org.eclipse.m2e.logback.configuration.LogPlugin$1.run(LogPlugin.java:62)
-	at java.util.TimerThread.mainLoop(Unknown Source)
-	at java.util.TimerThread.run(Unknown Source)
-
-!ENTRY org.eclipse.egit.core 4 0 2015-06-27 11:11:02.960
-!MESSAGE Remove repository mapping of Git mapped resource for which project or mapped git repository has disappeared: 'RepositoryMapping[<empty> -> '.git', absolute path: 'G:/[B]CodeRuntimeLibrary/[B]MyJavaSource/Workspaces/SignPress/.git' ]'
-!STACK 0
-java.io.FileNotFoundException: 
-	at org.eclipse.egit.core.project.GitProjectData.logAndUnmapGoneMappedResource(GitProjectData.java:531)
-	at org.eclipse.egit.core.project.GitProjectData.map(GitProjectData.java:497)
-	at org.eclipse.egit.core.project.GitProjectData.remapAll(GitProjectData.java:471)
-	at org.eclipse.egit.core.project.GitProjectData.load(GitProjectData.java:464)
-	at org.eclipse.egit.core.project.GitProjectData.get(GitProjectData.java:204)
-	at org.eclipse.egit.core.GitProvider.getData(GitProvider.java:86)
-	at org.eclipse.egit.core.GitProvider.getMoveDeleteHook(GitProvider.java:73)
-	at org.eclipse.team.internal.core.MoveDeleteManager.getHookFor(MoveDeleteManager.java:34)
-	at org.eclipse.team.internal.core.MoveDeleteManager.deleteFile(MoveDeleteManager.java:50)
-	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1978)
-	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:803)
-	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:115)
-	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:47)
-	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:256)
-	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:186)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
-
-!ENTRY org.eclipse.egit.ui 2 0 2015-06-27 11:11:12.479
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.egit.ui 2 0 2015-06-27 11:11:12.482
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\acer'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.ui.navigator 4 0 2015-06-27 11:17:55.631
-!MESSAGE Cannot add F/SignPress/libs to the list of segments in P/SignPress::F/SignPress/libs::P/appcompat_v7:: as a parent.
-!STACK 0
-org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add F/SignPress/libs to the list of segments in P/SignPress::F/SignPress/libs::P/appcompat_v7:: as a parent.
-	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
-	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
-	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
-	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
-	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
-	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1699)
-	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:573)
-	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1636)
-	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
-	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
-	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
-	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
-	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
-	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
-	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
-	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
-	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
-	at org.eclipse.jface.action.Action.runWithEvent(Action.java:519)
-	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
-	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
-	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
-	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4172)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
-
-!ENTRY org.eclipse.ui.navigator 4 0 2015-06-27 11:17:55.636
-!MESSAGE Cannot add F/SignPress/libs to the list of segments in P/SignPress::F/SignPress/libs::P/appcompat_v7::F/appcompat_v7/libs:: as a parent.
-!STACK 0
-org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add F/SignPress/libs to the list of segments in P/SignPress::F/SignPress/libs::P/appcompat_v7::F/appcompat_v7/libs:: as a parent.
-	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
-	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
-	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
-	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
-	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
-	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
-	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1699)
-	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:573)
-	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1636)
-	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
-	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
-	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
-	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
-	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
-	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
-	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
-	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
-	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
-	at org.eclipse.jface.action.Action.runWithEvent(Action.java:519)
-	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
-	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
-	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
-	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4172)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
-
-!ENTRY org.eclipse.ui.navigator 4 0 2015-06-27 11:17:55.639
-!MESSAGE Cannot add F/SignPress/libs to the list of segments in P/SignPress::F/SignPress/libs::P/appcompat_v7:: as a parent.
-!STACK 0
-org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add F/SignPress/libs to the list of segments in P/SignPress::F/SignPress/libs::P/appcompat_v7:: as a parent.
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add P/SignPress to the list of segments in P/SignPress::src [in SignPress]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.signpress (...)
+  signdata (...)
+  signsocket (...)::com.example.signpress [in src [in SignPress]]
+  [Working copy] LoginActivity.java
+    package com.example.signpress
+    import java.io.BufferedWriter
+    import java.io.IOException
+    import java.io.OutputStreamWriter
+    import java.io.PrintWriter
+    import java.net.InetAddress
+    import java.net.Socket
+    import android.os.AsyncTask
+    import android.os.Bundle
+    import android.os.StrictMode
+    import android.view.Menu
+    import android.view.MenuItem
+    import android.widget.Button
+    import android.widget.EditText
+    import android.view.View
+    import android.view.View.OnClickListener
+    import android.annotation.SuppressLint
+    import android.app.Activity
+    import android.content.Context
+    import android.content.Intent
+    import signdata.User
+    import signsocket.ClientRequest
+    import signsocket.NetManager
+    import signsocket.SocketClient
+    import signsocket.SocketMessage
+    import signsocket.SocketThreadManager
+    class LoginActivity
+      EditText editTextUsername
+      EditText editTextPassword
+      Button buttonLogin
+      PrintWriter output
+      SocketClient m_socketClient
+      Context s_context
+      void onCreate(Bundle)
+        class <anonymous #1>
+          void onClick(View)
+          void loginAsyncTask()
+            class <anonymous #1>
+              void onPostExecute(Object)
+              Object doInBackground(String ...)
+      boolean onCreateOptionsMenu(Menu)
+      boolean onOptionsItemSelected(MenuItem)
+      void Connect()
+  [Working copy] TestActivity.java
+    package com.example.signpress
+    import android.app.Activity
+    import android.graphics.Color
+    import android.os.Bundle
+    import android.view.Gravity
+    import android.view.View
+    import android.view.ViewGroup
+    import android.view.Window
+    import android.widget.AbsListView
+    import android.widget.BaseExpandableListAdapter
+    import android.widget.ExpandableListAdapter
+    import android.widget.ExpandableListView
+    import android.widget.ExpandableListView.OnChildClickListener
+    import android.widget.LinearLayout
+    import android.widget.TextView
+    import android.widget.Toast
+    class TestActivity
+      void onCreate(Bundle)
+        class <anonymous #1>
+          String[] generalsTypes
+          String[][] generals
+          TextView getTextView()
+          int getGroupCount()
+          Object getGroup(int)
+          long getGroupId(int)
+          int getChildrenCount(int)
+          Object getChild(int, int)
+          long getChildId(int, int)
+          boolean hasStableIds()
+          View getGroupView(int, boolean, View, ViewGroup)
+          View getChildView(int, int, boolean, View, ViewGroup)
+          boolean isChildSelectable(int, int)
+        class <anonymous #2>
+          boolean onChildClick(ExpandableListView, View, int, int, long)
+  [Working copy] AppContext.java
+    package com.example.signpress
+    import signdata.Employee
+    import signdata.User
+    import signsocket.SocketClient
+    import android.app.Application
+    class AppContext
+      SocketClient m_socketClient
+      SocketClient getSocketClient(SocketClient)
+      void SetSocketClient(SocketClient)
+      Employee m_employee
+      Employee getEmployee()
+      void setEmployee(Employee)
+      User m_user
+      User getUser()
+      void setUser(User):: as a parent.
 	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
 	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
 	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
@@ -495,19 +224,27 @@ org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicP
 	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:573)
 	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1636)
 	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1638)
-	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
-	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setSelectionToWidget(AbstractTreeViewer.java:2540)
+	at org.eclipse.ui.navigator.CommonViewer.setSelectionToWidget(CommonViewer.java:446)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setSelectionToWidget(AbstractTreeViewer.java:2974)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1443)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1519)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:292)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1675)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:69)
 	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
 	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
 	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
 	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
 	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
-	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
-	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.back(FrameList.java:75)
+	at org.eclipse.ui.internal.navigator.framelist.BackAction.run(BackAction.java:63)
 	at org.eclipse.jface.action.Action.runWithEvent(Action.java:519)
 	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
 	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
-	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.jface.action.ActionContributionItem$6.handleEvent(ActionContributionItem.java:462)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
 	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
@@ -535,12 +272,540 @@ org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicP
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 
-!ENTRY org.eclipse.ui.navigator 4 0 2015-06-27 11:17:55.642
-!MESSAGE Cannot add P/SignPress to the list of segments in F/SignPress/libs::P/SignPress:: as a parent.
+!ENTRY org.eclipse.ui.navigator 4 0 2015-06-30 16:51:43.115
+!MESSAGE Cannot add P/SignPress to the list of segments in P/SignPress::src [in SignPress]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.signpress (...)
+  signdata (...)
+  signsocket (...)::signsocket [in src [in SignPress]]
+  [Working copy] SocketMessage.java
+    package signsocket
+    import signsocket.CLog.CLogType
+    import com.google.gson.Gson
+    class SocketMessage
+      String Head
+      String Message
+      String Package
+      SocketMessage(ClientRequest, Object)
+  [Working copy] MsgEntity.java
+    package signsocket
+    import android.os.Handler
+    class MsgEntity
+      byte[] bytes
+      Handler mHandler
+      MsgEntity(byte[], Handler)
+      byte[] getBytes()
+      Handler getHandler()
+  [Working copy] SocketOutputThread.java
+    package signsocket
+    import java.io.IOException
+    import java.io.ObjectOutputStream
+    import java.net.Socket
+    import java.util.List
+    import java.util.concurrent.CopyOnWriteArrayList
+    import android.os.Bundle
+    import android.os.Handler
+    import android.os.Message
+    class SocketOutputThread
+      boolean isStart
+      String tag
+      List<MsgEntity> sendMsgList
+      SocketOutputThread()
+      void setStart(boolean)
+      boolean sendMsg(byte[])
+      void addMsgToSendList(MsgEntity)
+      void run()
+  [Working copy] SocketResponse.java
+    package signsocket
+    class SocketResponse
+      void onResponse(T)
+  [Working copy] Const.java
+    package signsocket
+    class Const
+      String SOCKET_SERVER
+      int SOCKET_PORT
+      int SOCKET_TIMOUT
+      int SOCKET_READ_TIMOUT
+      int SOCKET_SLEEP_SECOND
+      int SOCKET_HEART_SECOND
+      String BC
+  [Working copy] SocketInputThread.java
+    package signsocket
+    import java.io.IOException
+    import java.io.UnsupportedEncodingException
+    import java.nio.ByteBuffer
+    import java.nio.channels.CancelledKeyException
+    import java.nio.channels.ClosedSelectorException
+    import java.nio.channels.SelectionKey
+    import java.nio.channels.Selector
+    import java.nio.channels.SocketChannel
+    import java.nio.charset.CharacterCodingException
+    import java.nio.charset.Charset
+    import android.content.Intent
+    import android.text.TextUtils
+    class SocketInputThread
+      boolean isStart
+      String tag
+      SocketInputThread()
+      void setStart(boolean)
+      void run()
+      void readSocket()
+  [Working copy] ServerResponse.java
+    package signsocket
+    enum ServerResponse
+      ServerResponse LOGIN_SUCCESS
+      ServerResponse LOGIN_FAILED
+  [Working copy] SocketHeartThread.java
+    package signsocket
+    import java.io.IOException
+    import android.text.TextUtils
+    class SocketHeartThread
+      boolean isStop
+      boolean mIsConnectSocketSuccess
+      SocketHeartThread s_instance
+      TCPClient mTcpClient
+      String tag
+      static SocketHeartThread instance()
+      SocketHeartThread()
+      void stopThread()
+      boolean reConnect()
+      void run()
+  [Working copy] TCPClient.java
+    package signsocket
+    import java.io.IOException
+    import java.net.ConnectException
+    import java.net.InetSocketAddress
+    import java.net.SocketAddress
+    import java.net.SocketTimeoutException
+    import java.nio.ByteBuffer
+    import java.nio.channels.ClosedChannelException
+    import java.nio.channels.SelectionKey
+    import java.nio.channels.Selector
+    import java.nio.channels.SocketChannel
+    class TCPClient
+      Selector selector
+      SocketChannel socketChannel
+      String hostIp
+      int hostListenningPort
+      TCPClient s_Tcp
+      boolean isInitialized
+      static TCPClient instance()
+      TCPClient(String, int)
+      void initialize()
+      static void blockUntil(SelectionKey, long)
+      void sendMsg(String)
+      void sendMsg(byte[])
+      Selector getSelector()
+      boolean isConnect()
+      boolean reConnect()
+      boolean canConnectToServer()
+      void closeTCPSocket()
+      void repareRead()
+  [Working copy] SocketTools.java
+    package signsocket
+    class SocketTools
+  [Working copy] ClientRequest.java
+    package signsocket
+    enum ClientRequest
+      ClientRequest LOGIN_REQUEST
+  [Working copy] NetManager.java
+    package signsocket
+    import android.content.Context
+    import android.net.ConnectivityManager
+    import android.net.NetworkInfo
+    class NetManager
+      NetManager s_m
+      Context context
+      NetManager()
+      void init(Context)
+      static NetManager instance()
+      boolean isNetworkConnected()
+      boolean isWifiConnected()
+      boolean isMobileConnected()
+      int getConnectedType()
+  [Working copy] CLog.java
+    package signsocket
+    import java.io.BufferedInputStream
+    import java.io.BufferedOutputStream
+    import java.io.BufferedWriter
+    import java.io.File
+    import java.io.FileInputStream
+    import java.io.FileOutputStream
+    import java.io.FileWriter
+    import java.io.PrintWriter
+    import java.text.DateFormat
+    import java.text.SimpleDateFormat
+    import java.util.Date
+    import android.annotation.SuppressLint
+    import android.util.Log
+    class CLog
+      boolean enable
+      boolean writetosd
+      boolean showLogInfo
+      boolean printout
+      String LogTag
+      String packageName
+      int maxSize
+      File folder
+      File save
+      File log
+      File temp
+      String FORMATSTR
+      int move
+      enum CLogType
+        CLogType D
+        CLogType W
+        CLogType E
+        CLogType I
+        CLogType V
+        int value
+        CLogType(int)
+        int getValue()
+      CLog()
+      static boolean saveStringToTxt(String)
+      static String showCallerInfo()
+      static void out(Object)
+      static void out(CLogType, Object)
+      static void d(String, Object)
+      static void e(String, Object)
+      static void v(String, Object)
+      static void w(String, Object)
+      static void i(String, Object)
+      static void record(Object)
+      static void record(CLogType, Object)
+      static void write(Object, boolean)
+      static boolean saveInfoToLog(String, boolean)
+      static boolean save(File, String)
+      static void deleteFolder(File)
+      static boolean isEnable()
+      static void setEnable(boolean)
+      static boolean canWritetosd()
+      static void setWriteToSD(boolean)
+      static boolean isShowLogInfo()
+      static void setShowLogInfo(boolean)
+      static boolean isPrintout()
+      static void setPrintout(boolean)
+      static int getMaxSize()
+      static void setMaxSize(int)
+      static String getPackageName()
+      static void setPackageName(String)
+  [Working copy] SocketThreadManager.java
+    package signsocket
+    import android.os.Handler
+    import android.text.TextUtils
+    class SocketThreadManager
+      SocketThreadManager s_SocketManager
+      SocketInputThread mInputThread
+      SocketOutputThread mOutThread
+      SocketHeartThread mHeartThread
+      static SocketThreadManager sharedInstance()
+      SocketThreadManager()
+      void startThreads()
+      void stopThreads()
+      static void releaseInstance()
+      void sendMsg(byte[], Handler)
+  [Working copy] SocketClient.java
+    package signsocket
+    import java.io.BufferedReader
+    import java.io.DataInputStream
+    import java.io.DataOutputStream
+    import java.io.IOException
+    import java.io.InputStreamReader
+    import java.io.PrintStream
+    import java.io.PrintWriter
+    import java.net.InetAddress
+    import java.net.InetSocketAddress
+    import java.net.Socket
+    import signdata.User
+    class SocketClient
+      Socket m_socket
+      SocketClient socketClient
+      PrintWriter m_printWriter
+      BufferedReader m_buffer
+      DataOutputStream out
+      DataInputStream in
+      String SERVER_IP
+      int SERVER_PORT
+      static SocketClient instance()
+      SocketClient()
+      static void close()
+      void sendMessage(String)
+      void initialize()
+      boolean loginRequest(User)::[Working copy] ClientRequest.java [in signsocket [in src [in SignPress]]]
+  package signsocket
+  enum ClientRequest
+    ClientRequest LOGIN_REQUEST:: as a parent.
 !STACK 0
-org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add P/SignPress to the list of segments in F/SignPress/libs::P/SignPress:: as a parent.
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add P/SignPress to the list of segments in P/SignPress::src [in SignPress]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.signpress (...)
+  signdata (...)
+  signsocket (...)::signsocket [in src [in SignPress]]
+  [Working copy] SocketMessage.java
+    package signsocket
+    import signsocket.CLog.CLogType
+    import com.google.gson.Gson
+    class SocketMessage
+      String Head
+      String Message
+      String Package
+      SocketMessage(ClientRequest, Object)
+  [Working copy] MsgEntity.java
+    package signsocket
+    import android.os.Handler
+    class MsgEntity
+      byte[] bytes
+      Handler mHandler
+      MsgEntity(byte[], Handler)
+      byte[] getBytes()
+      Handler getHandler()
+  [Working copy] SocketOutputThread.java
+    package signsocket
+    import java.io.IOException
+    import java.io.ObjectOutputStream
+    import java.net.Socket
+    import java.util.List
+    import java.util.concurrent.CopyOnWriteArrayList
+    import android.os.Bundle
+    import android.os.Handler
+    import android.os.Message
+    class SocketOutputThread
+      boolean isStart
+      String tag
+      List<MsgEntity> sendMsgList
+      SocketOutputThread()
+      void setStart(boolean)
+      boolean sendMsg(byte[])
+      void addMsgToSendList(MsgEntity)
+      void run()
+  [Working copy] SocketResponse.java
+    package signsocket
+    class SocketResponse
+      void onResponse(T)
+  [Working copy] Const.java
+    package signsocket
+    class Const
+      String SOCKET_SERVER
+      int SOCKET_PORT
+      int SOCKET_TIMOUT
+      int SOCKET_READ_TIMOUT
+      int SOCKET_SLEEP_SECOND
+      int SOCKET_HEART_SECOND
+      String BC
+  [Working copy] SocketInputThread.java
+    package signsocket
+    import java.io.IOException
+    import java.io.UnsupportedEncodingException
+    import java.nio.ByteBuffer
+    import java.nio.channels.CancelledKeyException
+    import java.nio.channels.ClosedSelectorException
+    import java.nio.channels.SelectionKey
+    import java.nio.channels.Selector
+    import java.nio.channels.SocketChannel
+    import java.nio.charset.CharacterCodingException
+    import java.nio.charset.Charset
+    import android.content.Intent
+    import android.text.TextUtils
+    class SocketInputThread
+      boolean isStart
+      String tag
+      SocketInputThread()
+      void setStart(boolean)
+      void run()
+      void readSocket()
+  [Working copy] ServerResponse.java
+    package signsocket
+    enum ServerResponse
+      ServerResponse LOGIN_SUCCESS
+      ServerResponse LOGIN_FAILED
+  [Working copy] SocketHeartThread.java
+    package signsocket
+    import java.io.IOException
+    import android.text.TextUtils
+    class SocketHeartThread
+      boolean isStop
+      boolean mIsConnectSocketSuccess
+      SocketHeartThread s_instance
+      TCPClient mTcpClient
+      String tag
+      static SocketHeartThread instance()
+      SocketHeartThread()
+      void stopThread()
+      boolean reConnect()
+      void run()
+  [Working copy] TCPClient.java
+    package signsocket
+    import java.io.IOException
+    import java.net.ConnectException
+    import java.net.InetSocketAddress
+    import java.net.SocketAddress
+    import java.net.SocketTimeoutException
+    import java.nio.ByteBuffer
+    import java.nio.channels.ClosedChannelException
+    import java.nio.channels.SelectionKey
+    import java.nio.channels.Selector
+    import java.nio.channels.SocketChannel
+    class TCPClient
+      Selector selector
+      SocketChannel socketChannel
+      String hostIp
+      int hostListenningPort
+      TCPClient s_Tcp
+      boolean isInitialized
+      static TCPClient instance()
+      TCPClient(String, int)
+      void initialize()
+      static void blockUntil(SelectionKey, long)
+      void sendMsg(String)
+      void sendMsg(byte[])
+      Selector getSelector()
+      boolean isConnect()
+      boolean reConnect()
+      boolean canConnectToServer()
+      void closeTCPSocket()
+      void repareRead()
+  [Working copy] SocketTools.java
+    package signsocket
+    class SocketTools
+  [Working copy] ClientRequest.java
+    package signsocket
+    enum ClientRequest
+      ClientRequest LOGIN_REQUEST
+  [Working copy] NetManager.java
+    package signsocket
+    import android.content.Context
+    import android.net.ConnectivityManager
+    import android.net.NetworkInfo
+    class NetManager
+      NetManager s_m
+      Context context
+      NetManager()
+      void init(Context)
+      static NetManager instance()
+      boolean isNetworkConnected()
+      boolean isWifiConnected()
+      boolean isMobileConnected()
+      int getConnectedType()
+  [Working copy] CLog.java
+    package signsocket
+    import java.io.BufferedInputStream
+    import java.io.BufferedOutputStream
+    import java.io.BufferedWriter
+    import java.io.File
+    import java.io.FileInputStream
+    import java.io.FileOutputStream
+    import java.io.FileWriter
+    import java.io.PrintWriter
+    import java.text.DateFormat
+    import java.text.SimpleDateFormat
+    import java.util.Date
+    import android.annotation.SuppressLint
+    import android.util.Log
+    class CLog
+      boolean enable
+      boolean writetosd
+      boolean showLogInfo
+      boolean printout
+      String LogTag
+      String packageName
+      int maxSize
+      File folder
+      File save
+      File log
+      File temp
+      String FORMATSTR
+      int move
+      enum CLogType
+        CLogType D
+        CLogType W
+        CLogType E
+        CLogType I
+        CLogType V
+        int value
+        CLogType(int)
+        int getValue()
+      CLog()
+      static boolean saveStringToTxt(String)
+      static String showCallerInfo()
+      static void out(Object)
+      static void out(CLogType, Object)
+      static void d(String, Object)
+      static void e(String, Object)
+      static void v(String, Object)
+      static void w(String, Object)
+      static void i(String, Object)
+      static void record(Object)
+      static void record(CLogType, Object)
+      static void write(Object, boolean)
+      static boolean saveInfoToLog(String, boolean)
+      static boolean save(File, String)
+      static void deleteFolder(File)
+      static boolean isEnable()
+      static void setEnable(boolean)
+      static boolean canWritetosd()
+      static void setWriteToSD(boolean)
+      static boolean isShowLogInfo()
+      static void setShowLogInfo(boolean)
+      static boolean isPrintout()
+      static void setPrintout(boolean)
+      static int getMaxSize()
+      static void setMaxSize(int)
+      static String getPackageName()
+      static void setPackageName(String)
+  [Working copy] SocketThreadManager.java
+    package signsocket
+    import android.os.Handler
+    import android.text.TextUtils
+    class SocketThreadManager
+      SocketThreadManager s_SocketManager
+      SocketInputThread mInputThread
+      SocketOutputThread mOutThread
+      SocketHeartThread mHeartThread
+      static SocketThreadManager sharedInstance()
+      SocketThreadManager()
+      void startThreads()
+      void stopThreads()
+      static void releaseInstance()
+      void sendMsg(byte[], Handler)
+  [Working copy] SocketClient.java
+    package signsocket
+    import java.io.BufferedReader
+    import java.io.DataInputStream
+    import java.io.DataOutputStream
+    import java.io.IOException
+    import java.io.InputStreamReader
+    import java.io.PrintStream
+    import java.io.PrintWriter
+    import java.net.InetAddress
+    import java.net.InetSocketAddress
+    import java.net.Socket
+    import signdata.User
+    class SocketClient
+      Socket m_socket
+      SocketClient socketClient
+      PrintWriter m_printWriter
+      BufferedReader m_buffer
+      DataOutputStream out
+      DataInputStream in
+      String SERVER_IP
+      int SERVER_PORT
+      static SocketClient instance()
+      SocketClient()
+      static void close()
+      void sendMessage(String)
+      void initialize()
+      boolean loginRequest(User)::[Working copy] ClientRequest.java [in signsocket [in src [in SignPress]]]
+  package signsocket
+  enum ClientRequest
+    ClientRequest LOGIN_REQUEST:: as a parent.
 	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
 	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
 	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
 	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
 	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1699)
@@ -553,198 +818,12 @@ org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicP
 	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
 	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
 	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
-	at org.eclipse.ui.internal.navigator.framelist.FrameList.gotoFrame(FrameList.java:162)
-	at org.eclipse.ui.internal.navigator.framelist.GoIntoAction.run(GoIntoAction.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.back(FrameList.java:75)
+	at org.eclipse.ui.internal.navigator.framelist.BackAction.run(BackAction.java:63)
 	at org.eclipse.jface.action.Action.runWithEvent(Action.java:519)
 	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
 	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
-	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
-	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4172)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
-!SESSION 2015-06-27 11:21:26.021 -----------------------------------------------
-eclipse.buildId=4.4.1.M20140925-0400
-java.version=1.7.0
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.m2e.logback.configuration 2 0 2015-06-27 11:21:34.531
-!MESSAGE Exception while setting up logging:org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
-!STACK 0
-java.lang.ClassCastException: org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
-	at org.eclipse.m2e.logback.configuration.LogHelper.logJavaProperties(LogHelper.java:26)
-	at org.eclipse.m2e.logback.configuration.LogPlugin.loadConfiguration(LogPlugin.java:189)
-	at org.eclipse.m2e.logback.configuration.LogPlugin.configureLogback(LogPlugin.java:144)
-	at org.eclipse.m2e.logback.configuration.LogPlugin.access$2(LogPlugin.java:107)
-	at org.eclipse.m2e.logback.configuration.LogPlugin$1.run(LogPlugin.java:62)
-	at java.util.TimerThread.mainLoop(Unknown Source)
-	at java.util.TimerThread.run(Unknown Source)
-
-!ENTRY org.eclipse.egit.ui 2 0 2015-06-27 11:22:05.216
-!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
-Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
-The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
-this system level configuration. The Git installation location can be configured on the
-Team > Git > Configuration preference page's 'System Settings' tab.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.egit.ui 2 0 2015-06-27 11:22:05.219
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\acer'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 11:25:38.202
-!MESSAGE Error parsing D:\SoftwareEngineer\Java\Android\android-sdk\system-images\android-22\android-wear\armeabi-v7a\devices.xml
-!STACK 0
-org.xml.sax.SAXParseException; lineNumber: 53; columnNumber: 15; cvc-complex-type.2.4.d: 发现了以元素 'd:skin' 开头的无效内容。此处不应含有子元素。
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$XSIErrorReporter.reportError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.reportSchemaError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(Unknown Source)
-	at javax.xml.parsers.SAXParser.parse(Unknown Source)
-	at com.android.sdklib.devices.DeviceParser.parseImpl(DeviceParser.java:445)
-	at com.android.sdklib.devices.DeviceParser.parse(DeviceParser.java:418)
-	at com.android.sdklib.devices.DeviceManager.loadDevices(DeviceManager.java:673)
-	at com.android.sdklib.devices.DeviceManager.initSysImgDevices(DeviceManager.java:402)
-	at com.android.sdklib.devices.DeviceManager.initDevicesLists(DeviceManager.java:252)
-	at com.android.sdklib.devices.DeviceManager.getDevices(DeviceManager.java:232)
-	at com.android.ide.eclipse.adt.internal.editors.layout.configuration.ConfigurationChooser.initDevices(ConfigurationChooser.java:876)
-	at com.android.ide.eclipse.adt.internal.editors.layout.configuration.ConfigurationChooser.<init>(ConfigurationChooser.java:301)
-	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.createPartControl(GraphicalEditorPart.java:419)
-	at org.eclipse.ui.part.MultiPageEditorPart.addPage(MultiPageEditorPart.java:243)
-	at org.eclipse.ui.forms.editor.FormEditor.addPage(FormEditor.java:325)
-	at org.eclipse.ui.part.MultiPageEditorPart.addPage(MultiPageEditorPart.java:213)
-	at org.eclipse.ui.forms.editor.FormEditor.addPage(FormEditor.java:308)
-	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.addPage(AndroidXmlEditor.java:356)
-	at com.android.ide.eclipse.adt.internal.editors.layout.LayoutEditorDelegate.delegateCreateFormPages(LayoutEditorDelegate.java:281)
-	at com.android.ide.eclipse.adt.internal.editors.common.CommonXmlEditor.createFormPages(CommonXmlEditor.java:268)
-	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.createAndroidPages(AndroidXmlEditor.java:319)
-	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.addPages(AndroidXmlEditor.java:310)
-	at com.android.ide.eclipse.adt.internal.editors.common.CommonXmlEditor.addPages(CommonXmlEditor.java:285)
-	at org.eclipse.ui.forms.editor.FormEditor.createPages(FormEditor.java:138)
-	at org.eclipse.ui.part.MultiPageEditorPart.createPartControl(MultiPageEditorPart.java:362)
-	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.createPartControl(CompatibilityPart.java:141)
-	at org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor.createPartControl(CompatibilityEditor.java:99)
-	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:327)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:888)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:869)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:120)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:337)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:258)
-	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:104)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:73)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:55)
-	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:127)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:983)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:662)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$1.handleEvent(PartServiceImpl.java:94)
-	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
-	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
-	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
-	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
-	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:218)
-	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
-	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:197)
-	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
-	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
-	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
-	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
-	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
-	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:81)
-	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:59)
-	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
-	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:171)
-	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.showElementInWindow(ModelServiceImpl.java:488)
-	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.bringToTop(ModelServiceImpl.java:454)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.delegateBringToTop(PartServiceImpl.java:694)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.bringToTop(PartServiceImpl.java:387)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.showPart(PartServiceImpl.java:1134)
-	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:3210)
-	at org.eclipse.ui.internal.WorkbenchPage.access$23(WorkbenchPage.java:3125)
-	at org.eclipse.ui.internal.WorkbenchPage$9.run(WorkbenchPage.java:3107)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:3102)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:3066)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:3056)
-	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:541)
-	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:500)
-	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.openInEditor(EditorUtility.java:360)
-	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.openInEditor(EditorUtility.java:167)
-	at org.eclipse.jdt.ui.actions.OpenAction.run(OpenAction.java:268)
-	at org.eclipse.jdt.ui.actions.OpenAction.run(OpenAction.java:233)
-	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.dispatchRun(SelectionDispatchAction.java:275)
-	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.run(SelectionDispatchAction.java:251)
-	at org.eclipse.jdt.internal.ui.navigator.OpenAndExpand.run(OpenAndExpand.java:50)
-	at org.eclipse.ui.actions.RetargetAction.run(RetargetAction.java:229)
-	at org.eclipse.ui.navigator.CommonNavigatorManager$3.open(CommonNavigatorManager.java:185)
-	at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
-	at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:853)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
-	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:178)
-	at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:850)
-	at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1142)
-	at org.eclipse.ui.navigator.CommonViewer.handleOpen(CommonViewer.java:462)
-	at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1249)
-	at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:278)
-	at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:272)
-	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:313)
+	at org.eclipse.jface.action.ActionContributionItem$6.handleEvent(ActionContributionItem.java:462)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
 	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
@@ -772,131 +851,601 @@ org.xml.sax.SAXParseException; lineNumber: 53; columnNumber: 15; cvc-complex-typ
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2015-06-27 11:25:38.245
-!MESSAGE Error parsing D:\SoftwareEngineer\Java\Android\android-sdk\system-images\android-22\android-wear\x86\devices.xml
+!ENTRY org.eclipse.ui.navigator 4 0 2015-06-30 16:51:43.158
+!MESSAGE Cannot add P/SignPress to the list of segments in P/SignPress::src [in SignPress]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.signpress (...)
+  signdata (...)
+  signsocket (...)::signsocket [in src [in SignPress]]
+  [Working copy] SocketMessage.java
+    package signsocket
+    import signsocket.CLog.CLogType
+    import com.google.gson.Gson
+    class SocketMessage
+      String Head
+      String Message
+      String Package
+      SocketMessage(ClientRequest, Object)
+  [Working copy] MsgEntity.java
+    package signsocket
+    import android.os.Handler
+    class MsgEntity
+      byte[] bytes
+      Handler mHandler
+      MsgEntity(byte[], Handler)
+      byte[] getBytes()
+      Handler getHandler()
+  [Working copy] SocketOutputThread.java
+    package signsocket
+    import java.io.IOException
+    import java.io.ObjectOutputStream
+    import java.net.Socket
+    import java.util.List
+    import java.util.concurrent.CopyOnWriteArrayList
+    import android.os.Bundle
+    import android.os.Handler
+    import android.os.Message
+    class SocketOutputThread
+      boolean isStart
+      String tag
+      List<MsgEntity> sendMsgList
+      SocketOutputThread()
+      void setStart(boolean)
+      boolean sendMsg(byte[])
+      void addMsgToSendList(MsgEntity)
+      void run()
+  [Working copy] SocketResponse.java
+    package signsocket
+    class SocketResponse
+      void onResponse(T)
+  [Working copy] Const.java
+    package signsocket
+    class Const
+      String SOCKET_SERVER
+      int SOCKET_PORT
+      int SOCKET_TIMOUT
+      int SOCKET_READ_TIMOUT
+      int SOCKET_SLEEP_SECOND
+      int SOCKET_HEART_SECOND
+      String BC
+  [Working copy] SocketInputThread.java
+    package signsocket
+    import java.io.IOException
+    import java.io.UnsupportedEncodingException
+    import java.nio.ByteBuffer
+    import java.nio.channels.CancelledKeyException
+    import java.nio.channels.ClosedSelectorException
+    import java.nio.channels.SelectionKey
+    import java.nio.channels.Selector
+    import java.nio.channels.SocketChannel
+    import java.nio.charset.CharacterCodingException
+    import java.nio.charset.Charset
+    import android.content.Intent
+    import android.text.TextUtils
+    class SocketInputThread
+      boolean isStart
+      String tag
+      SocketInputThread()
+      void setStart(boolean)
+      void run()
+      void readSocket()
+  [Working copy] ServerResponse.java
+    package signsocket
+    enum ServerResponse
+      ServerResponse LOGIN_SUCCESS
+      ServerResponse LOGIN_FAILED
+  [Working copy] SocketHeartThread.java
+    package signsocket
+    import java.io.IOException
+    import android.text.TextUtils
+    class SocketHeartThread
+      boolean isStop
+      boolean mIsConnectSocketSuccess
+      SocketHeartThread s_instance
+      TCPClient mTcpClient
+      String tag
+      static SocketHeartThread instance()
+      SocketHeartThread()
+      void stopThread()
+      boolean reConnect()
+      void run()
+  [Working copy] TCPClient.java
+    package signsocket
+    import java.io.IOException
+    import java.net.ConnectException
+    import java.net.InetSocketAddress
+    import java.net.SocketAddress
+    import java.net.SocketTimeoutException
+    import java.nio.ByteBuffer
+    import java.nio.channels.ClosedChannelException
+    import java.nio.channels.SelectionKey
+    import java.nio.channels.Selector
+    import java.nio.channels.SocketChannel
+    class TCPClient
+      Selector selector
+      SocketChannel socketChannel
+      String hostIp
+      int hostListenningPort
+      TCPClient s_Tcp
+      boolean isInitialized
+      static TCPClient instance()
+      TCPClient(String, int)
+      void initialize()
+      static void blockUntil(SelectionKey, long)
+      void sendMsg(String)
+      void sendMsg(byte[])
+      Selector getSelector()
+      boolean isConnect()
+      boolean reConnect()
+      boolean canConnectToServer()
+      void closeTCPSocket()
+      void repareRead()
+  [Working copy] SocketTools.java
+    package signsocket
+    class SocketTools
+  [Working copy] ClientRequest.java
+    package signsocket
+    enum ClientRequest
+      ClientRequest LOGIN_REQUEST
+  [Working copy] NetManager.java
+    package signsocket
+    import android.content.Context
+    import android.net.ConnectivityManager
+    import android.net.NetworkInfo
+    class NetManager
+      NetManager s_m
+      Context context
+      NetManager()
+      void init(Context)
+      static NetManager instance()
+      boolean isNetworkConnected()
+      boolean isWifiConnected()
+      boolean isMobileConnected()
+      int getConnectedType()
+  [Working copy] CLog.java
+    package signsocket
+    import java.io.BufferedInputStream
+    import java.io.BufferedOutputStream
+    import java.io.BufferedWriter
+    import java.io.File
+    import java.io.FileInputStream
+    import java.io.FileOutputStream
+    import java.io.FileWriter
+    import java.io.PrintWriter
+    import java.text.DateFormat
+    import java.text.SimpleDateFormat
+    import java.util.Date
+    import android.annotation.SuppressLint
+    import android.util.Log
+    class CLog
+      boolean enable
+      boolean writetosd
+      boolean showLogInfo
+      boolean printout
+      String LogTag
+      String packageName
+      int maxSize
+      File folder
+      File save
+      File log
+      File temp
+      String FORMATSTR
+      int move
+      enum CLogType
+        CLogType D
+        CLogType W
+        CLogType E
+        CLogType I
+        CLogType V
+        int value
+        CLogType(int)
+        int getValue()
+      CLog()
+      static boolean saveStringToTxt(String)
+      static String showCallerInfo()
+      static void out(Object)
+      static void out(CLogType, Object)
+      static void d(String, Object)
+      static void e(String, Object)
+      static void v(String, Object)
+      static void w(String, Object)
+      static void i(String, Object)
+      static void record(Object)
+      static void record(CLogType, Object)
+      static void write(Object, boolean)
+      static boolean saveInfoToLog(String, boolean)
+      static boolean save(File, String)
+      static void deleteFolder(File)
+      static boolean isEnable()
+      static void setEnable(boolean)
+      static boolean canWritetosd()
+      static void setWriteToSD(boolean)
+      static boolean isShowLogInfo()
+      static void setShowLogInfo(boolean)
+      static boolean isPrintout()
+      static void setPrintout(boolean)
+      static int getMaxSize()
+      static void setMaxSize(int)
+      static String getPackageName()
+      static void setPackageName(String)
+  [Working copy] SocketThreadManager.java
+    package signsocket
+    import android.os.Handler
+    import android.text.TextUtils
+    class SocketThreadManager
+      SocketThreadManager s_SocketManager
+      SocketInputThread mInputThread
+      SocketOutputThread mOutThread
+      SocketHeartThread mHeartThread
+      static SocketThreadManager sharedInstance()
+      SocketThreadManager()
+      void startThreads()
+      void stopThreads()
+      static void releaseInstance()
+      void sendMsg(byte[], Handler)
+  [Working copy] SocketClient.java
+    package signsocket
+    import java.io.BufferedReader
+    import java.io.DataInputStream
+    import java.io.DataOutputStream
+    import java.io.IOException
+    import java.io.InputStreamReader
+    import java.io.PrintStream
+    import java.io.PrintWriter
+    import java.net.InetAddress
+    import java.net.InetSocketAddress
+    import java.net.Socket
+    import signdata.User
+    class SocketClient
+      Socket m_socket
+      SocketClient socketClient
+      PrintWriter m_printWriter
+      BufferedReader m_buffer
+      DataOutputStream out
+      DataInputStream in
+      String SERVER_IP
+      int SERVER_PORT
+      static SocketClient instance()
+      SocketClient()
+      static void close()
+      void sendMessage(String)
+      void initialize()
+      boolean loginRequest(User)::[Working copy] SocketHeartThread.java [in signsocket [in src [in SignPress]]]
+  package signsocket
+  import java.io.IOException
+  import android.text.TextUtils
+  class SocketHeartThread
+    boolean isStop
+    boolean mIsConnectSocketSuccess
+    SocketHeartThread s_instance
+    TCPClient mTcpClient
+    String tag
+    static SocketHeartThread instance()
+    SocketHeartThread()
+    void stopThread()
+    boolean reConnect()
+    void run()::class SocketHeartThread [in [Working copy] SocketHeartThread.java [in signsocket [in src [in SignPress]]]]
+  boolean isStop
+  boolean mIsConnectSocketSuccess
+  SocketHeartThread s_instance
+  TCPClient mTcpClient
+  String tag
+  static SocketHeartThread instance()
+  SocketHeartThread()
+  void stopThread()
+  boolean reConnect()
+  void run():: as a parent.
 !STACK 0
-org.xml.sax.SAXParseException; lineNumber: 53; columnNumber: 15; cvc-complex-type.2.4.d: 发现了以元素 'd:skin' 开头的无效内容。此处不应含有子元素。
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
-	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$XSIErrorReporter.reportError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.reportSchemaError(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(Unknown Source)
-	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
-	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(Unknown Source)
-	at javax.xml.parsers.SAXParser.parse(Unknown Source)
-	at com.android.sdklib.devices.DeviceParser.parseImpl(DeviceParser.java:445)
-	at com.android.sdklib.devices.DeviceParser.parse(DeviceParser.java:418)
-	at com.android.sdklib.devices.DeviceManager.loadDevices(DeviceManager.java:673)
-	at com.android.sdklib.devices.DeviceManager.initSysImgDevices(DeviceManager.java:402)
-	at com.android.sdklib.devices.DeviceManager.initDevicesLists(DeviceManager.java:252)
-	at com.android.sdklib.devices.DeviceManager.getDevices(DeviceManager.java:232)
-	at com.android.ide.eclipse.adt.internal.editors.layout.configuration.ConfigurationChooser.initDevices(ConfigurationChooser.java:876)
-	at com.android.ide.eclipse.adt.internal.editors.layout.configuration.ConfigurationChooser.<init>(ConfigurationChooser.java:301)
-	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.createPartControl(GraphicalEditorPart.java:419)
-	at org.eclipse.ui.part.MultiPageEditorPart.addPage(MultiPageEditorPart.java:243)
-	at org.eclipse.ui.forms.editor.FormEditor.addPage(FormEditor.java:325)
-	at org.eclipse.ui.part.MultiPageEditorPart.addPage(MultiPageEditorPart.java:213)
-	at org.eclipse.ui.forms.editor.FormEditor.addPage(FormEditor.java:308)
-	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.addPage(AndroidXmlEditor.java:356)
-	at com.android.ide.eclipse.adt.internal.editors.layout.LayoutEditorDelegate.delegateCreateFormPages(LayoutEditorDelegate.java:281)
-	at com.android.ide.eclipse.adt.internal.editors.common.CommonXmlEditor.createFormPages(CommonXmlEditor.java:268)
-	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.createAndroidPages(AndroidXmlEditor.java:319)
-	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.addPages(AndroidXmlEditor.java:310)
-	at com.android.ide.eclipse.adt.internal.editors.common.CommonXmlEditor.addPages(CommonXmlEditor.java:285)
-	at org.eclipse.ui.forms.editor.FormEditor.createPages(FormEditor.java:138)
-	at org.eclipse.ui.part.MultiPageEditorPart.createPartControl(MultiPageEditorPart.java:362)
-	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.createPartControl(CompatibilityPart.java:141)
-	at org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor.createPartControl(CompatibilityEditor.java:99)
-	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:327)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:888)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:869)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:120)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:337)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:258)
-	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:104)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:73)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:55)
-	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:127)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:983)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:662)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$1.handleEvent(PartServiceImpl.java:94)
-	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
-	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
-	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
-	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
-	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:218)
-	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
-	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:197)
-	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
-	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
-	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
-	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
-	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
-	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:81)
-	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:59)
-	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
-	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:171)
-	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.showElementInWindow(ModelServiceImpl.java:488)
-	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.bringToTop(ModelServiceImpl.java:454)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.delegateBringToTop(PartServiceImpl.java:694)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.bringToTop(PartServiceImpl.java:387)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.showPart(PartServiceImpl.java:1134)
-	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:3210)
-	at org.eclipse.ui.internal.WorkbenchPage.access$23(WorkbenchPage.java:3125)
-	at org.eclipse.ui.internal.WorkbenchPage$9.run(WorkbenchPage.java:3107)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:3102)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:3066)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:3056)
-	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:541)
-	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:500)
-	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.openInEditor(EditorUtility.java:360)
-	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.openInEditor(EditorUtility.java:167)
-	at org.eclipse.jdt.ui.actions.OpenAction.run(OpenAction.java:268)
-	at org.eclipse.jdt.ui.actions.OpenAction.run(OpenAction.java:233)
-	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.dispatchRun(SelectionDispatchAction.java:275)
-	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.run(SelectionDispatchAction.java:251)
-	at org.eclipse.jdt.internal.ui.navigator.OpenAndExpand.run(OpenAndExpand.java:50)
-	at org.eclipse.ui.actions.RetargetAction.run(RetargetAction.java:229)
-	at org.eclipse.ui.navigator.CommonNavigatorManager$3.open(CommonNavigatorManager.java:185)
-	at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
-	at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:853)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
-	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:178)
-	at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:850)
-	at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1142)
-	at org.eclipse.ui.navigator.CommonViewer.handleOpen(CommonViewer.java:462)
-	at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1249)
-	at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:278)
-	at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:272)
-	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:313)
+org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$CyclicPathException: Cannot add P/SignPress to the list of segments in P/SignPress::src [in SignPress]
+  <default> (...)
+  com (...)
+  com.example (...)
+  com.example.signpress (...)
+  signdata (...)
+  signsocket (...)::signsocket [in src [in SignPress]]
+  [Working copy] SocketMessage.java
+    package signsocket
+    import signsocket.CLog.CLogType
+    import com.google.gson.Gson
+    class SocketMessage
+      String Head
+      String Message
+      String Package
+      SocketMessage(ClientRequest, Object)
+  [Working copy] MsgEntity.java
+    package signsocket
+    import android.os.Handler
+    class MsgEntity
+      byte[] bytes
+      Handler mHandler
+      MsgEntity(byte[], Handler)
+      byte[] getBytes()
+      Handler getHandler()
+  [Working copy] SocketOutputThread.java
+    package signsocket
+    import java.io.IOException
+    import java.io.ObjectOutputStream
+    import java.net.Socket
+    import java.util.List
+    import java.util.concurrent.CopyOnWriteArrayList
+    import android.os.Bundle
+    import android.os.Handler
+    import android.os.Message
+    class SocketOutputThread
+      boolean isStart
+      String tag
+      List<MsgEntity> sendMsgList
+      SocketOutputThread()
+      void setStart(boolean)
+      boolean sendMsg(byte[])
+      void addMsgToSendList(MsgEntity)
+      void run()
+  [Working copy] SocketResponse.java
+    package signsocket
+    class SocketResponse
+      void onResponse(T)
+  [Working copy] Const.java
+    package signsocket
+    class Const
+      String SOCKET_SERVER
+      int SOCKET_PORT
+      int SOCKET_TIMOUT
+      int SOCKET_READ_TIMOUT
+      int SOCKET_SLEEP_SECOND
+      int SOCKET_HEART_SECOND
+      String BC
+  [Working copy] SocketInputThread.java
+    package signsocket
+    import java.io.IOException
+    import java.io.UnsupportedEncodingException
+    import java.nio.ByteBuffer
+    import java.nio.channels.CancelledKeyException
+    import java.nio.channels.ClosedSelectorException
+    import java.nio.channels.SelectionKey
+    import java.nio.channels.Selector
+    import java.nio.channels.SocketChannel
+    import java.nio.charset.CharacterCodingException
+    import java.nio.charset.Charset
+    import android.content.Intent
+    import android.text.TextUtils
+    class SocketInputThread
+      boolean isStart
+      String tag
+      SocketInputThread()
+      void setStart(boolean)
+      void run()
+      void readSocket()
+  [Working copy] ServerResponse.java
+    package signsocket
+    enum ServerResponse
+      ServerResponse LOGIN_SUCCESS
+      ServerResponse LOGIN_FAILED
+  [Working copy] SocketHeartThread.java
+    package signsocket
+    import java.io.IOException
+    import android.text.TextUtils
+    class SocketHeartThread
+      boolean isStop
+      boolean mIsConnectSocketSuccess
+      SocketHeartThread s_instance
+      TCPClient mTcpClient
+      String tag
+      static SocketHeartThread instance()
+      SocketHeartThread()
+      void stopThread()
+      boolean reConnect()
+      void run()
+  [Working copy] TCPClient.java
+    package signsocket
+    import java.io.IOException
+    import java.net.ConnectException
+    import java.net.InetSocketAddress
+    import java.net.SocketAddress
+    import java.net.SocketTimeoutException
+    import java.nio.ByteBuffer
+    import java.nio.channels.ClosedChannelException
+    import java.nio.channels.SelectionKey
+    import java.nio.channels.Selector
+    import java.nio.channels.SocketChannel
+    class TCPClient
+      Selector selector
+      SocketChannel socketChannel
+      String hostIp
+      int hostListenningPort
+      TCPClient s_Tcp
+      boolean isInitialized
+      static TCPClient instance()
+      TCPClient(String, int)
+      void initialize()
+      static void blockUntil(SelectionKey, long)
+      void sendMsg(String)
+      void sendMsg(byte[])
+      Selector getSelector()
+      boolean isConnect()
+      boolean reConnect()
+      boolean canConnectToServer()
+      void closeTCPSocket()
+      void repareRead()
+  [Working copy] SocketTools.java
+    package signsocket
+    class SocketTools
+  [Working copy] ClientRequest.java
+    package signsocket
+    enum ClientRequest
+      ClientRequest LOGIN_REQUEST
+  [Working copy] NetManager.java
+    package signsocket
+    import android.content.Context
+    import android.net.ConnectivityManager
+    import android.net.NetworkInfo
+    class NetManager
+      NetManager s_m
+      Context context
+      NetManager()
+      void init(Context)
+      static NetManager instance()
+      boolean isNetworkConnected()
+      boolean isWifiConnected()
+      boolean isMobileConnected()
+      int getConnectedType()
+  [Working copy] CLog.java
+    package signsocket
+    import java.io.BufferedInputStream
+    import java.io.BufferedOutputStream
+    import java.io.BufferedWriter
+    import java.io.File
+    import java.io.FileInputStream
+    import java.io.FileOutputStream
+    import java.io.FileWriter
+    import java.io.PrintWriter
+    import java.text.DateFormat
+    import java.text.SimpleDateFormat
+    import java.util.Date
+    import android.annotation.SuppressLint
+    import android.util.Log
+    class CLog
+      boolean enable
+      boolean writetosd
+      boolean showLogInfo
+      boolean printout
+      String LogTag
+      String packageName
+      int maxSize
+      File folder
+      File save
+      File log
+      File temp
+      String FORMATSTR
+      int move
+      enum CLogType
+        CLogType D
+        CLogType W
+        CLogType E
+        CLogType I
+        CLogType V
+        int value
+        CLogType(int)
+        int getValue()
+      CLog()
+      static boolean saveStringToTxt(String)
+      static String showCallerInfo()
+      static void out(Object)
+      static void out(CLogType, Object)
+      static void d(String, Object)
+      static void e(String, Object)
+      static void v(String, Object)
+      static void w(String, Object)
+      static void i(String, Object)
+      static void record(Object)
+      static void record(CLogType, Object)
+      static void write(Object, boolean)
+      static boolean saveInfoToLog(String, boolean)
+      static boolean save(File, String)
+      static void deleteFolder(File)
+      static boolean isEnable()
+      static void setEnable(boolean)
+      static boolean canWritetosd()
+      static void setWriteToSD(boolean)
+      static boolean isShowLogInfo()
+      static void setShowLogInfo(boolean)
+      static boolean isPrintout()
+      static void setPrintout(boolean)
+      static int getMaxSize()
+      static void setMaxSize(int)
+      static String getPackageName()
+      static void setPackageName(String)
+  [Working copy] SocketThreadManager.java
+    package signsocket
+    import android.os.Handler
+    import android.text.TextUtils
+    class SocketThreadManager
+      SocketThreadManager s_SocketManager
+      SocketInputThread mInputThread
+      SocketOutputThread mOutThread
+      SocketHeartThread mHeartThread
+      static SocketThreadManager sharedInstance()
+      SocketThreadManager()
+      void startThreads()
+      void stopThreads()
+      static void releaseInstance()
+      void sendMsg(byte[], Handler)
+  [Working copy] SocketClient.java
+    package signsocket
+    import java.io.BufferedReader
+    import java.io.DataInputStream
+    import java.io.DataOutputStream
+    import java.io.IOException
+    import java.io.InputStreamReader
+    import java.io.PrintStream
+    import java.io.PrintWriter
+    import java.net.InetAddress
+    import java.net.InetSocketAddress
+    import java.net.Socket
+    import signdata.User
+    class SocketClient
+      Socket m_socket
+      SocketClient socketClient
+      PrintWriter m_printWriter
+      BufferedReader m_buffer
+      DataOutputStream out
+      DataInputStream in
+      String SERVER_IP
+      int SERVER_PORT
+      static SocketClient instance()
+      SocketClient()
+      static void close()
+      void sendMessage(String)
+      void initialize()
+      boolean loginRequest(User)::[Working copy] SocketHeartThread.java [in signsocket [in src [in SignPress]]]
+  package signsocket
+  import java.io.IOException
+  import android.text.TextUtils
+  class SocketHeartThread
+    boolean isStop
+    boolean mIsConnectSocketSuccess
+    SocketHeartThread s_instance
+    TCPClient mTcpClient
+    String tag
+    static SocketHeartThread instance()
+    SocketHeartThread()
+    void stopThread()
+    boolean reConnect()
+    void run()::class SocketHeartThread [in [Working copy] SocketHeartThread.java [in signsocket [in src [in SignPress]]]]
+  boolean isStop
+  boolean mIsConnectSocketSuccess
+  SocketHeartThread s_instance
+  TCPClient mTcpClient
+  String tag
+  static SocketHeartThread instance()
+  SocketHeartThread()
+  void stopThread()
+  boolean reConnect()
+  void run():: as a parent.
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$TreePathCompiler.addParent(NavigatorContentServiceContentProvider.java:524)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:591)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.findPaths(NavigatorContentServiceContentProvider.java:592)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getParents(NavigatorContentServiceContentProvider.java:320)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getParentElement(AbstractTreeViewer.java:1699)
+	at org.eclipse.jface.viewers.TreeViewer.getParentElement(TreeViewer.java:573)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalExpand(AbstractTreeViewer.java:1636)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.setExpandedElements(AbstractTreeViewer.java:2424)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.frameChanged(TreeViewerFrameSource.java:71)
+	at org.eclipse.ui.internal.navigator.CommonNavigatorFrameSource.frameChanged(CommonNavigatorFrameSource.java:50)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource.handlePropertyChange(TreeViewerFrameSource.java:172)
+	at org.eclipse.ui.internal.navigator.framelist.TreeViewerFrameSource$1.propertyChange(TreeViewerFrameSource.java:47)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.firePropertyChange(FrameList.java:90)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.setCurrent(FrameList.java:205)
+	at org.eclipse.ui.internal.navigator.framelist.FrameList.back(FrameList.java:75)
+	at org.eclipse.ui.internal.navigator.framelist.BackAction.run(BackAction.java:63)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:519)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$6.handleEvent(ActionContributionItem.java:462)
 	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
 	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
@@ -924,5 +1473,209 @@ org.xml.sax.SAXParseException; lineNumber: 53; columnNumber: 15; cvc-complex-typ
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
 
-!ENTRY org.eclipse.ui 4 4 2015-06-27 11:35:28.725
-!MESSAGE 引用部件仍不存在：org.eclipse.ui.views.ProblemView。
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2015-06-30 17:20:52.062
+!MESSAGE com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine occurred while retrieving value.
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:179)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:197)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:191)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:226)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValues(ArrayReferenceImpl.java:121)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValue(ArrayReferenceImpl.java:72)
+	at org.eclipse.jdt.internal.debug.core.model.JDIArrayEntryVariable.retrieveValue(JDIArrayEntryVariable.java:87)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getCurrentValue(JDIVariable.java:69)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getValue(JDIVariable.java:92)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.appendArrayDetail(JavaDetailFormattersManager.java:688)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener$1.run(JavaDetailFormattersManager.java:656)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.runEvaluation(JDIThread.java:765)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.valueToString(JavaDetailFormattersManager.java:665)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.resolveFormatter(JavaDetailFormattersManager.java:166)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.access$1(JavaDetailFormattersManager.java:139)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$1.run(JavaDetailFormattersManager.java:134)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread$ThreadJob.run(JDIThread.java:3158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2015-06-30 17:33:51.117
+!MESSAGE com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine occurred while retrieving value.
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:179)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:197)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:191)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:226)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValues(ArrayReferenceImpl.java:121)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValue(ArrayReferenceImpl.java:72)
+	at org.eclipse.jdt.internal.debug.core.model.JDIArrayEntryVariable.retrieveValue(JDIArrayEntryVariable.java:87)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getCurrentValue(JDIVariable.java:69)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getValue(JDIVariable.java:92)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.appendArrayDetail(JavaDetailFormattersManager.java:688)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener$1.run(JavaDetailFormattersManager.java:656)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.runEvaluation(JDIThread.java:765)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.valueToString(JavaDetailFormattersManager.java:665)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.resolveFormatter(JavaDetailFormattersManager.java:166)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.access$1(JavaDetailFormattersManager.java:139)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$1.run(JavaDetailFormattersManager.java:134)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread$ThreadJob.run(JDIThread.java:3158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2015-06-30 17:45:22.190
+!MESSAGE com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine occurred while retrieving value.
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:179)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:197)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:191)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:226)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValues(ArrayReferenceImpl.java:121)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValue(ArrayReferenceImpl.java:72)
+	at org.eclipse.jdt.internal.debug.core.model.JDIArrayEntryVariable.retrieveValue(JDIArrayEntryVariable.java:87)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getCurrentValue(JDIVariable.java:69)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getValue(JDIVariable.java:92)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.appendArrayDetail(JavaDetailFormattersManager.java:688)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener$1.run(JavaDetailFormattersManager.java:656)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.runEvaluation(JDIThread.java:765)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.valueToString(JavaDetailFormattersManager.java:665)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.resolveFormatter(JavaDetailFormattersManager.java:166)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.access$1(JavaDetailFormattersManager.java:139)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$1.run(JavaDetailFormattersManager.java:134)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread$ThreadJob.run(JDIThread.java:3158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2015-06-30 17:48:03.281
+!MESSAGE com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine occurred while retrieving value.
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:179)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:197)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:191)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:226)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValues(ArrayReferenceImpl.java:121)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValue(ArrayReferenceImpl.java:72)
+	at org.eclipse.jdt.internal.debug.core.model.JDIArrayEntryVariable.retrieveValue(JDIArrayEntryVariable.java:87)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getCurrentValue(JDIVariable.java:69)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getValue(JDIVariable.java:92)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.appendArrayDetail(JavaDetailFormattersManager.java:688)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener$1.run(JavaDetailFormattersManager.java:656)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.runEvaluation(JDIThread.java:765)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.valueToString(JavaDetailFormattersManager.java:665)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.resolveFormatter(JavaDetailFormattersManager.java:166)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.access$1(JavaDetailFormattersManager.java:139)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$1.run(JavaDetailFormattersManager.java:134)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread$ThreadJob.run(JDIThread.java:3158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2015-06-30 17:49:47.762
+!MESSAGE com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine occurred while retrieving value.
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:179)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:197)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:191)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:226)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValues(ArrayReferenceImpl.java:121)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValue(ArrayReferenceImpl.java:72)
+	at org.eclipse.jdt.internal.debug.core.model.JDIArrayEntryVariable.retrieveValue(JDIArrayEntryVariable.java:87)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getCurrentValue(JDIVariable.java:69)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getValue(JDIVariable.java:92)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.appendArrayDetail(JavaDetailFormattersManager.java:688)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener$1.run(JavaDetailFormattersManager.java:656)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.runEvaluation(JDIThread.java:765)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.valueToString(JavaDetailFormattersManager.java:665)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.resolveFormatter(JavaDetailFormattersManager.java:166)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.access$1(JavaDetailFormattersManager.java:139)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$1.run(JavaDetailFormattersManager.java:134)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread$ThreadJob.run(JDIThread.java:3158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2015-06-30 17:57:15.740
+!MESSAGE com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine occurred while retrieving value.
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:179)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:197)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:191)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:226)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValues(ArrayReferenceImpl.java:121)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValue(ArrayReferenceImpl.java:72)
+	at org.eclipse.jdt.internal.debug.core.model.JDIArrayEntryVariable.retrieveValue(JDIArrayEntryVariable.java:87)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getCurrentValue(JDIVariable.java:69)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getValue(JDIVariable.java:92)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.appendArrayDetail(JavaDetailFormattersManager.java:688)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener$1.run(JavaDetailFormattersManager.java:656)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.runEvaluation(JDIThread.java:765)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.valueToString(JavaDetailFormattersManager.java:665)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.resolveFormatter(JavaDetailFormattersManager.java:166)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.access$1(JavaDetailFormattersManager.java:139)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$1.run(JavaDetailFormattersManager.java:134)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread$ThreadJob.run(JDIThread.java:3158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2015-06-30 17:58:40.030
+!MESSAGE com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine occurred while retrieving value.
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:179)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:197)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:191)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:226)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValues(ArrayReferenceImpl.java:121)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValue(ArrayReferenceImpl.java:72)
+	at org.eclipse.jdt.internal.debug.core.model.JDIArrayEntryVariable.retrieveValue(JDIArrayEntryVariable.java:87)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getCurrentValue(JDIVariable.java:69)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getValue(JDIVariable.java:92)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.appendArrayDetail(JavaDetailFormattersManager.java:688)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener$1.run(JavaDetailFormattersManager.java:656)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.runEvaluation(JDIThread.java:765)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.valueToString(JavaDetailFormattersManager.java:665)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.resolveFormatter(JavaDetailFormattersManager.java:166)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.access$1(JavaDetailFormattersManager.java:139)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$1.run(JavaDetailFormattersManager.java:134)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread$ThreadJob.run(JDIThread.java:3158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2015-06-30 18:05:34.252
+!MESSAGE com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine occurred while retrieving value.
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:179)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:197)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:191)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:226)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValues(ArrayReferenceImpl.java:121)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValue(ArrayReferenceImpl.java:72)
+	at org.eclipse.jdt.internal.debug.core.model.JDIArrayEntryVariable.retrieveValue(JDIArrayEntryVariable.java:87)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getCurrentValue(JDIVariable.java:69)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getValue(JDIVariable.java:92)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.appendArrayDetail(JavaDetailFormattersManager.java:688)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener$1.run(JavaDetailFormattersManager.java:656)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.runEvaluation(JDIThread.java:765)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.valueToString(JavaDetailFormattersManager.java:665)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.resolveFormatter(JavaDetailFormattersManager.java:166)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.access$1(JavaDetailFormattersManager.java:139)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$1.run(JavaDetailFormattersManager.java:134)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread$ThreadJob.run(JDIThread.java:3158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jdt.debug.ui 4 4 2015-06-30 18:14:21.372
+!MESSAGE com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine occurred while retrieving value.
+!STACK 0
+com.sun.jdi.VMDisconnectedException: Got IOException from Virtual Machine
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:179)
+	at org.eclipse.jdi.internal.connect.PacketReceiveManager.getReply(PacketReceiveManager.java:197)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:191)
+	at org.eclipse.jdi.internal.MirrorImpl.requestVM(MirrorImpl.java:226)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValues(ArrayReferenceImpl.java:121)
+	at org.eclipse.jdi.internal.ArrayReferenceImpl.getValue(ArrayReferenceImpl.java:72)
+	at org.eclipse.jdt.internal.debug.core.model.JDIArrayEntryVariable.retrieveValue(JDIArrayEntryVariable.java:87)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getCurrentValue(JDIVariable.java:69)
+	at org.eclipse.jdt.internal.debug.core.model.JDIVariable.getValue(JDIVariable.java:92)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.appendArrayDetail(JavaDetailFormattersManager.java:688)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener$1.run(JavaDetailFormattersManager.java:656)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread.runEvaluation(JDIThread.java:765)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$EvaluationListener.valueToString(JavaDetailFormattersManager.java:665)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.resolveFormatter(JavaDetailFormattersManager.java:166)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager.access$1(JavaDetailFormattersManager.java:139)
+	at org.eclipse.jdt.internal.debug.ui.JavaDetailFormattersManager$1.run(JavaDetailFormattersManager.java:134)
+	at org.eclipse.jdt.internal.debug.core.model.JDIThread$ThreadJob.run(JDIThread.java:3158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

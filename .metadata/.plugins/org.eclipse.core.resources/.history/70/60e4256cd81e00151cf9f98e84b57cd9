@@ -1,0 +1,24 @@
+package signsocket;
+import com.google.gson.Gson;
+
+public class SocketMessage 
+{
+	public String Head;
+	public String Message;
+	public String Package;
+	//
+	// 序列化： 
+	//　　JsonConvert.SerializeObject（string）； 
+	//　　反序列化： 
+	//　　JsonConvert.DeserializeObject（obj）； 
+	/*
+	 * Java可以用开源项目google-gson，
+	 * 在项目中导入这个项目的第三方jar包，
+	 * 然后添加引用：import com.google.gson.Gson；
+	 * 就可使用以下方法： */
+	public SocketMessage(ClientRequest request, Object obj)
+	{
+		this.Package = request.toString() + 
+		
+	}
+}

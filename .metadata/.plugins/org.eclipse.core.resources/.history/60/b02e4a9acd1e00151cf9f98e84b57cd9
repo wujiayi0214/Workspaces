@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//src/signsocket/CLog.java=UTF-8
+encoding//src/signsocket/Const.java=UTF-8
+encoding//src/signsocket/NetManager.java=UTF-8
+encoding//src/signsocket/SocketHeartThread.java=UTF-8

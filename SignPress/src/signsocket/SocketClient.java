@@ -1,64 +1,80 @@
 package signsocket;
 
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+
+import com.google.gson.Gson;
 
 import signdata.User;
 
+/*
+Socket 提供了getInputStream()和getOutputStream()用来得到输入流和输出流进行读写操作，
+这两个方法分别返回InputStream和OutputStream。
+为了方便读写，我们常常在InputStream和OutputStream基础上进行包装得到
+DataInputStream, DataOutputStream, 
+PrintStream, InputStreamReader, 
+OutputStreamWriter, printWriter等。
 
+示例代码：
 
+PrintStream printStream = new PrintStream(new BufferedOutputStream(socket.getOutputStream()));
 
+PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(), true)));
+
+printWriter.println(String msg);
+
+DataInputStream dis = new DataInputStream(socket.getInputStream());
+
+BufferedReader br =  new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+String line = br.readLine();
+*/
 public class SocketClient
 {
-	// ���÷�����IP�Ͷ˿�
+	// 设置服务器IP和端口
     public static Socket m_socket = null;
-    
-    //private static PrintWriter  _printWriter    = null;         
-    
-    //public static InputStream in = null;
-    
-    //public static BufferedReader br=null;
-    
+    public static SocketClient socketClient = null;
+    private static PrintWriter  m_printWriter    = null;         
+        
+    public static BufferedReader m_buffer=null;
+    public static byte[] m_recvBuffer;
     public static DataOutputStream out=null;
     public static DataInputStream in=null;
     //public static BufferedReader inbuff=null;
-    private static final String SERVER_IP   = "10.0.51.141"; //"192.168.1.200";
+    private static final String SERVER_IP   = "192.168.253.1"; //"192.168.1.200";
     private static final int    SERVER_PORT      = 6666;//7777;
     
-    public static Boolean create()
-    {        
-
-        try
-        {
-        	m_socket = new Socket(SERVER_IP, SERVER_PORT);
-            in = new DataInputStream(m_socket.getInputStream());
-            out = new DataOutputStream(m_socket.getOutputStream());    
-                    
-                    
-            //inbuff=new BufferedReader(new InputStreamReader(_socket.getInputStream()));
-            /*System.out.println("socket  1");        
-            in=_socket.getInputStream();
-            br=new BufferedReader(new InputStreamReader(in));
-            
-            System.out.println("socket  2");        
-            _printWriter=new PrintWriter(SocketHP._socket.getOutputStream(), true); 
-            System.out.println("socket  3");        */
-                
-            return true;        
-        
-
-        } 
-        catch (IOException e) 
-        {
-        	System.out.println(e.toString());        
-            
-        	return false;
-        }        
-
-    }
+	public static synchronized SocketClient instance()
+	{
+		if (socketClient == null)
+		{
+			socketClient = new SocketClient();
+		}
+		
+		return socketClient;
+	}
+	
+	public SocketClient()
+	{
+		try
+		{
+			initialize();
+			
+		} catch (IOException e)
+		{
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+	}
 
 
     public static void close()
@@ -80,11 +96,10 @@ public class SocketClient
         }
     }
 
-    public static void sendMessage(String message)
+    public void sendMessage(String message)
     {
         try
         {
-        
             out.writeBytes(message);
             out.flush();
         }
@@ -95,14 +110,65 @@ public class SocketClient
         }
     }
     
-    public static boolean LoginRequest(User user)
-    {
-    	//  ���͵�¼���󵽷�����LOGIN_REQUEST;length;{User}
-    	
-    	//  �ȴ������������ݷ���
-    	
-    	return true;
-    }
+
+    
+	public void  initialize() throws IOException
+	{
+		m_socket = new Socket( );
+        m_socket.connect(new InetSocketAddress(SERVER_IP, SERVER_PORT), 5000);              //inbuff=new BufferedReader(new InputStreamReader(_socket.getInputStream()));
+        m_recvBuffer = new byte[1024*1024]; 
+    	//m_socket = new Socket(InetAddress.getByName(SERVER_IP), SERVER_PORT);
+        in = new DataInputStream(m_socket.getInputStream());
+        out = new DataOutputStream(m_socket.getOutputStream());    
+
+        //  发送数据
+        PrintStream m_printWriter = new PrintStream(m_socket.getOutputStream()); //发送数据,PrintStream最方便
+        //m_printWriter.write(message.getBytes());
+        // 接收返回信息
+        BufferedReader m_buffer = new BufferedReader(new InputStreamReader(m_socket.getInputStream()));; //一次性接收完成读取Socket的输入流，在其中读出返回信息
+
+	}
+	
+	public boolean loginRequest(User user)
+	{
+		try
+		{
+			//  发送登录请求以及数据
+			SocketMessage message = new SocketMessage(ClientRequest.LOGIN_REQUEST, user);
+			
+			out.write(message.Package.getBytes("utf-8"));
+			out.flush();
+			
+			//  接收登录响应数据
+			/*byte buf [] = new byte [1024 * 1024 * 8];
+			in.read(buf, 0, 1024 * 1024 * 8);
+			     
+			String msg = new String(buf).trim();
+			System.out.println(msg);*/
+
+			in.read(m_recvBuffer, 0, 1024 * 1024);
+			
+			System.out.println(m_recvBuffer);
+			message.Package = new String(m_recvBuffer).trim();
+			String msg = new String(m_recvBuffer).trim();
+			if(msg == ServerResponse.LOGIN_SUCCESS.toString())
+			{
+				
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+				
+		}
+		catch (IOException e)
+		{
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		return false;
+	}
     
 
 }

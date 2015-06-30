@@ -1,0 +1,157 @@
+package signsocket;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.nio.channels.CancelledKeyException;
+import java.nio.channels.ClosedSelectorException;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.SocketChannel;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
+
+
+import android.content.Intent;
+import android.text.TextUtils;
+
+/**
+ * 瀹㈡埛绔娑堟伅绾跨▼
+ * 
+ * @author way
+ * 
+ */
+public class SocketInputThread extends Thread
+{
+	private boolean isStart = true;
+	
+	private static String tag = "socket";
+	
+	// private MessageListener messageListener;// 娑堟伅鐩戝惉鎺ュ彛瀵硅薄
+	
+	public SocketInputThread()
+	{
+	}
+	
+	public void setStart(boolean isStart)
+	{
+		this.isStart = isStart;
+	}
+	
+	@Override
+	public void run()
+	{
+		while (isStart)
+		{
+			// 鎵嬫満鑳借仈缃戯紝璇籹ocket鏁版嵁
+			if (NetManager.instance().isNetworkConnected())
+			{
+				
+				if (!TCPClient.instance().isConnect())
+				{
+					CLog.e(tag, "TCPClient connet server is fail read thread sleep second" +Const.SOCKET_SLEEP_SECOND );
+					
+					try
+					{
+						sleep(Const.SOCKET_SLEEP_SECOND * 1000);
+					} catch (InterruptedException e)
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				readSocket();
+				
+				// 濡傛灉杩炴帴鏈嶅姟鍣ㄥけ璐�鏈嶅姟鍣ㄨ繛鎺ュけ璐ワ紝sleep鍥哄畾鐨勬椂闂达紝鑳借仈缃戯紝灏变笉闇�sleep
+				
+				CLog.e("socket","TCPClient.instance().isConnect() " + TCPClient.instance().isConnect() );
+				
+				
+			}
+		}
+	}
+	
+	public void readSocket()
+	{
+		Selector selector = TCPClient.instance().getSelector();
+		if (selector == null)
+		{
+			return;
+		}
+		try
+		{
+			// 濡傛灉娌℃湁鏁版嵁杩囨潵锛屼竴鐩存煴濉�
+			while (selector.select() > 0)
+			{
+				for (SelectionKey sk : selector.selectedKeys())
+				{
+					// 濡傛灉璇electionKey瀵瑰簲鐨凜hannel涓湁鍙鐨勬暟鎹�
+					if (sk.isReadable())
+					{
+						// 浣跨敤NIO璇诲彇Channel涓殑鏁版嵁
+						SocketChannel sc = (SocketChannel) sk.channel();
+						ByteBuffer buffer = ByteBuffer.allocate(1024);
+						try
+						{
+							sc.read(buffer);
+						} catch (IOException e)
+						{
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+							// continue;
+						}
+						buffer.flip();
+						String receivedString = "";
+						// 鎵撳嵃鏀跺埌鐨勬暟鎹�
+						try
+						{
+							receivedString = Charset.forName("UTF-8")
+									.newDecoder().decode(buffer).toString();
+							
+							CLog.e(tag, receivedString);
+							
+
+							Intent i = new Intent(Const.BC);
+							
+							i.putExtra("response", receivedString);
+							
+							MainActivity.s_context.sendBroadcast(i );
+							
+						} catch (CharacterCodingException e)
+						{
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						buffer.clear();
+						buffer = null;
+						
+						try
+						{
+							// 涓轰笅涓�璇诲彇浣滃噯澶�
+							sk.interestOps(SelectionKey.OP_READ);
+							// 鍒犻櫎姝ｅ湪澶勭悊鐨凷electionKey
+							selector.selectedKeys().remove(sk);
+							
+						} catch (CancelledKeyException e)
+						{
+							e.printStackTrace();
+						}
+						
+					
+					}
+				}
+			}
+			// selector.close();
+			// TCPClient.instance().repareRead();
+			
+		} catch (IOException e1)
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ClosedSelectorException e2)
+		{
+		}
+	}
+	
+}
