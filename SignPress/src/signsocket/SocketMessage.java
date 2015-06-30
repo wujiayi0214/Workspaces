@@ -1,13 +1,16 @@
 package signsocket;
 import signsocket.CLog.CLogType;
 
+
 import com.google.gson.Gson;
 
 public class SocketMessage 
 {
 	public String Head;
+	public int Length;
 	public String Message;
 	public String Package;
+	public String[] m_splits;
 	//
 	// 序列化： 
 	//　　JsonConvert.SerializeObject（string）； 
@@ -33,4 +36,22 @@ public class SocketMessage
 		//CLog.w(Package, str);
 		CLog.out(Package);
 	}
+	
+	
+	
+    public void Split()
+    {
+        this.m_splits = this.Package.split(";");    //返回由'/'分隔的子字符串数组
+        
+        if(this.m_splits.length == 3)
+        {
+            this.Head = this.m_splits[0];
+            this.Length = Integer.parseInt(this.m_splits[1]);
+            this.Message = this.m_splits[2];
+        }
+        else
+        {
+            this.Head = this.m_splits[0]; 
+        }
+    }
 }

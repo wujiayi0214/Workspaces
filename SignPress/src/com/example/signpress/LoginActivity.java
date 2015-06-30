@@ -21,6 +21,7 @@ import java.net.Socket;
 
 
 
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -38,6 +39,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import signdata.Employee;
 import signdata.User;
 import signsocket.ClientRequest;
 import signsocket.NetManager;
@@ -157,8 +159,9 @@ public class LoginActivity extends Activity
 					{
 						//SocketClient client = SocketClient.instance();
 						SocketMessage message = new SocketMessage(ClientRequest.LOGIN_REQUEST, user);
-					
-						if(SocketClient.instance().loginRequest(user) == true)
+						Employee employee;
+						employee = SocketClient.instance().loginRequest(user);
+						if(employee.Id != -1 && employee.CanSign == 1)
 						{
 							Intent intent = new Intent();  
 							//设置Intent的class属性，跳转到SecondActivity  

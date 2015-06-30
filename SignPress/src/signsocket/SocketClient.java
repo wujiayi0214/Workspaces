@@ -14,6 +14,7 @@ import java.net.Socket;
 
 import com.google.gson.Gson;
 
+import signdata.Employee;
 import signdata.User;
 
 /*
@@ -129,8 +130,9 @@ public class SocketClient
 
 	}
 	
-	public boolean loginRequest(User user)
+	public Employee loginRequest(User user)
 	{
+		Employee employee = new Employee();
 		try
 		{
 			//  发送登录请求以及数据
@@ -150,15 +152,17 @@ public class SocketClient
 			
 			System.out.println(m_recvBuffer);
 			message.Package = new String(m_recvBuffer).trim();
-			String msg = new String(m_recvBuffer).trim();
-			if(msg == ServerResponse.LOGIN_SUCCESS.toString())
-			{
+			message.Split();   //  将数据进行拆包
+			
+			if(message.Head.equals(ServerResponse.LOGIN_SUCCESS.toString()))
+			{			//  数据头是登录成功
+				Gson gson = new Gson();
+				employee = gson.fromJson(message.Message, Employee.class);
 				
-				return true;
 			}
 			else
 			{
-				return false;
+				employee.Id = -1;
 			}
 				
 		}
@@ -167,7 +171,7 @@ public class SocketClient
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		return false;
+		return employee;
 	}
     
 
