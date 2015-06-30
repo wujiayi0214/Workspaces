@@ -8,13 +8,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.lang.reflect.Type;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import signdata.Employee;
+import signdata.HDJContract;
+import signdata.SHDJContract;
+import signdata.SignatureDetail;
 import signdata.User;
 
 /*
@@ -141,13 +148,6 @@ public class SocketClient
 			out.write(message.Package.getBytes("utf-8"));
 			out.flush();
 			
-			//  接收登录响应数据
-			/*byte buf [] = new byte [1024 * 1024 * 8];
-			in.read(buf, 0, 1024 * 1024 * 8);
-			     
-			String msg = new String(buf).trim();
-			System.out.println(msg);*/
-
 			in.read(m_recvBuffer, 0, 1024 * 1024);
 			
 			System.out.println(m_recvBuffer);
@@ -172,6 +172,162 @@ public class SocketClient
 			e.printStackTrace();
 		}
 		return employee;
+	}
+	
+	// 查询未签字的信息
+	public List<SHDJContract> QueryUnsignedHDJContract(String employeeId)
+	{
+		List<SHDJContract> contracts = new ArrayList<SHDJContract>();
+	    Type type = new TypeToken<ArrayList<SHDJContract>>(){}.getType(); 
+		try
+		{
+			//  发送查询为签字的会签单的信息以及员工的ID
+			SocketMessage message = new SocketMessage(ClientRequest.QUERY_UNSIGN_CONTRACT_REQUEST, employeeId);
+			
+			out.write(message.Package.getBytes("utf-8"));
+			out.flush();
+			
+			in.read(m_recvBuffer, 0, 1024 * 1024);
+			
+			System.out.println(m_recvBuffer);
+			message.Package = new String(m_recvBuffer).trim();
+			message.Split();   //  将数据进行拆包
+			
+			if(message.Head.equals(ServerResponse.QUERY_UNSIGN_CONTRACT_SUCCESS.toString()))
+			{			
+				//  数据头是查询成功
+				Gson gson = new Gson();
+				contracts = gson.fromJson(message.Message, type);				
+			}
+			else
+			{
+				return null;
+			}
+
+				
+		}
+		catch (IOException e)
+		{
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		return contracts;	
+	}
+	
+	// 查询已经签字的会签单信息
+	public List<SHDJContract> QuerySignedHDJContract(String employeeId)
+	{
+		List<SHDJContract> contracts = new ArrayList<SHDJContract>();
+	    Type type = new TypeToken<ArrayList<SHDJContract>>(){}.getType(); 
+		try
+		{
+			//  发送查询为签字的会签单的信息以及员工的ID
+			SocketMessage message = new SocketMessage(ClientRequest.QUERY_SIGNED_CONTRACT_REQUEST, employeeId);
+			
+			out.write(message.Package.getBytes("utf-8"));
+			out.flush();
+			
+			in.read(m_recvBuffer, 0, 1024 * 1024);
+			
+			System.out.println(m_recvBuffer);
+			message.Package = new String(m_recvBuffer).trim();
+			message.Split();   //  将数据进行拆包
+			
+			if(message.Head.equals(ServerResponse.QUERY_SIGNED_CONTRACT_SUCCESS.toString()))
+			{			
+				//  数据头是查询成功
+				Gson gson = new Gson();
+				contracts = gson.fromJson(message.Message, type);				
+			}
+			else
+			{
+				return null;
+			}
+
+				
+		}
+		catch (IOException e)
+		{
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		return contracts;	
+	}
+	
+	// 查询某个会签单的详细信息
+	public HDJContract GetHDJContract(String contractId)
+	{
+		HDJContract contract = new HDJContract();
+		try
+		{
+			//  发送查询为签字的会签单的信息以及员工的ID
+			SocketMessage message = new SocketMessage(ClientRequest.GET_HDJCONTRACT_REQUEST, contractId);
+			
+			out.write(message.Package.getBytes("utf-8"));
+			out.flush();
+			
+			in.read(m_recvBuffer, 0, 1024 * 1024);
+			
+			System.out.println(m_recvBuffer);
+			message.Package = new String(m_recvBuffer).trim();
+			message.Split();   //  将数据进行拆包
+			
+			if(message.Head.equals(ServerResponse.GET_HDJCONTRACT_SUCCESS.toString()))
+			{			
+				//  数据头是查询成功
+				Gson gson = new Gson();
+				contract = gson.fromJson(message.Message, HDJContract.class);				
+			}
+			else
+			{
+				return null;
+			}
+
+				
+		}
+		catch (IOException e)
+		{
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		return contract;	
+	}
+	
+	// 进行签字确认
+	public boolean InsertSignatureDetail(SignatureDetail detail)
+	{
+		try
+		{
+			//  发送查询为签字的会签单的信息以及员工的ID
+			SocketMessage message = new SocketMessage(ClientRequest.INSERT_SIGN_DETAIL_REQUEST, detail);
+			
+			out.write(message.Package.getBytes("utf-8"));
+			out.flush();
+			
+			in.read(m_recvBuffer, 0, 1024 * 1024);
+			
+			System.out.println(m_recvBuffer);
+			message.Package = new String(m_recvBuffer).trim();
+			message.Split();   //  将数据进行拆包
+			
+			if(message.Head.equals(ServerResponse.INSERT_SIGN_DETAIL_SUCCESS.toString()))
+			{			
+				//  数据头是查询成功
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+
+				
+		}
+		catch (IOException e)
+		{
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		return false;	
 	}
     
 

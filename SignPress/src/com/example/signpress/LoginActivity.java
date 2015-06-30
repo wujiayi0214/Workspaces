@@ -172,10 +172,14 @@ public class LoginActivity extends Activity
 							//启动Activity  
 							startActivity(intent);  
 						}
+						else if(employee.Id != -1 && employee.CanSign != 1)
+						{
+							// 使用弹窗，告诉用户没有签字权限无法登录
+							
+						}
 						else
 						{
-							// 使用弹窗，告诉用户用户名密码错误
-							
+							// 使用弹窗，告诉用户输入的用户名或者密码有误
 						}
 					
 		              }

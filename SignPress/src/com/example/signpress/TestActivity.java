@@ -27,7 +27,7 @@ public class TestActivity extends Activity {
 
         final ExpandableListAdapter adapter = new BaseExpandableListAdapter() {
             //设置组视图的显示文字
-            private String[] generalsTypes = new String[] { "待办列表", "已办列表" };
+            private String[] generalsTypes = new String[] { "需要签字", "已经签字" };
             //子视图显示文字
             private String[][] generals = new String[][] {
                     { "夏侯惇", "甄姬", "许褚", "郭嘉", "司马懿", "杨修" },
