@@ -1,6 +1,14 @@
 package com.example.signpress;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import signdata.Employee;
+import signdata.HDJContract;
+import signdata.SHDJContract;
+import signsocket.SocketClient;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -18,20 +26,92 @@ import android.widget.Toast;
  
 
 public class TestActivity extends Activity {
-
+    private AppContext app;
+    
+    private ArrayList<SHDJContract> unsignedList;
+    private List<SHDJContract> signedList;
+    
+    private List<String> unsignedStrs=new ArrayList<String>();
+    private List<String> signedStrs=new ArrayList<String>();
+    
+    private String[] t;
+    private String[] r;
 	protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        
+        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         setContentView(R.layout.activity_test);
-
-        final ExpandableListAdapter adapter = new BaseExpandableListAdapter() {
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.titlebar);
+        
+        app=(AppContext)getApplication();
+        final Employee emp = app.getEmployee();
+        unsignedList = SocketClient.instance().QueryUnsignedHDJContract(emp.Id);
+        signedList=SocketClient.instance().QuerySignedHDJContract(emp.Id);
+        
+        for(SHDJContract s : unsignedList)
+        {
+        	String str = s.Id+" "+s.ProjectName+" "+s.SubmitEmployeeName;
+        	unsignedStrs.add(str);
+        }
+        
+        if(unsignedStrs==null)
+        {
+        	t= new String[]{};
+        }
+        else
+        {
+         //t=(String[])unsignedStrs.toArray( );
+         /*
+          * ArrayList<String> list=new ArrayList<String>();
+           String strings[]=new String[list.size()];
+           for(int i=0,j=list.size();i<j;i++){
+           strings[i]=list.get(i);
+            }
+          */
+         t=new String[unsignedStrs.size()];
+         for(int i=0;i<unsignedStrs.size();i++)
+         {
+        	 t[i]=unsignedStrs.get(i);
+         }
+         
+        }
+        
+        for(SHDJContract s : signedList)
+        {
+        	String str = s.Id+" "+s.ProjectName+" "+s.SubmitEmployeeName;
+        	signedStrs.add(str);
+        }
+        
+        if(signedStrs==null)
+        {
+        	r= new String[]{};
+        }
+        else
+        {
+         //t=(String[])unsignedStrs.toArray( );
+         /*
+          * ArrayList<String> list=new ArrayList<String>();
+           String strings[]=new String[list.size()];
+           for(int i=0,j=list.size();i<j;i++){
+           strings[i]=list.get(i);
+            }
+          */
+         r=new String[signedStrs.size()];
+         for(int i=0;i<signedStrs.size();i++)
+         {
+        	 r[i]=signedStrs.get(i);
+         }
+         
+        }
+        final ExpandableListAdapter adapter = new BaseExpandableListAdapter()
+        {
             //设置组视图的显示文字
             private String[] generalsTypes = new String[] { "需要签字", "已经签字" };
-            //子视图显示文字
+            //子视图显示文字    
             private String[][] generals = new String[][] {
-                    { "夏侯惇", "甄姬", "许褚", "郭嘉", "司马懿", "杨修" },
-                    { "马超", "张飞", "刘备", "诸葛亮", "黄月英", "赵云" },
+            		t,
+                    r,
 
             };
             
@@ -142,16 +222,34 @@ public class TestActivity extends Activity {
         expandableListView.setOnChildClickListener(new OnChildClickListener() {
 
             @Override
-            public boolean onChildClick(ExpandableListView parent, View v,
-                    int groupPosition, int childPosition, long id) {
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id)
+            {
 
                 Toast.makeText(
                 		TestActivity.this,
                         "你点击了" + adapter.getChild(groupPosition, childPosition),
                         Toast.LENGTH_SHORT).show();
+                
+                if(groupPosition==0)
+                {
+	                HDJContract contract = new HDJContract();
+	                contract.Id=adapter.getChild(groupPosition, childPosition).toString().split(" ")[0];
+	                
+	                //app.setHDJContract(contract);
+					app.setContractId(contract.Id);
+					
+	                Intent intent = new Intent();  
+					//  设置Intent的class属性Test跳转到SecondActivity  
+					intent.setClass(TestActivity.this, DetailActivity.class);  
+					
+					//  为intent添加额外的信息  
+					//  启动Activity  
+					startActivity(intent);  
+                }
 
                 return false;
             }
         });
     }
+
 }

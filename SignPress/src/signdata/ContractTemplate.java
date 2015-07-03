@@ -13,7 +13,7 @@ public class ContractTemplate
 
     public int ColumnCount = 5;
 
-    protected List<String> ColumnNames;     //  存储5个栏目项的信息
+    public List<String> ColumnNames;     //  存储5个栏目项的信息
         
     public int SignCount = 8;
 

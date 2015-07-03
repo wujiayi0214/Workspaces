@@ -1,8 +1,8 @@
 package com.example.signpress;
 
 import signdata.Employee;
+import signdata.HDJContract;
 import signdata.User;
-
 import signsocket.SocketClient;
 import android.app.Application;
 
@@ -26,8 +26,8 @@ public class AppContext extends Application
 	}
 	
 	// 用户信息
-	private Employee m_employee;
-	public Employee getEmployee()
+	private  Employee m_employee;
+	public  Employee getEmployee()
 	{
 			return this.m_employee;
 	}
@@ -45,5 +45,26 @@ public class AppContext extends Application
 	public void setUser(User user)
 	{
 		this.m_user = user;
+	}
+	
+	
+	private String contractId;
+	public String getContractId()
+	{
+		return this.contractId;
+	}
+	public void setContractId(String conId)
+	{
+		this.contractId = conId;
+	}
+	
+	private HDJContract contract;
+	public HDJContract getHDJContract()
+	{
+		return this.contract;
+	}
+	public void setHDJContract(HDJContract contract)
+	{
+		this.contract = contract;
 	}
 }

@@ -11,5 +11,9 @@
     <string name="password">密码</string>
     <string name="title_activity_test">TestActivity</string>
     <string name="SignManage">签字管理</string>
-
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="loginname">会签单</string>
+    <string name="Remark">备注：同意时可不填写，但是拒绝的时候必须填写拒绝理由</string>
+	<string name="Agree">同意</string>
+	<string name="Refuse">拒绝</string>
 </resources>

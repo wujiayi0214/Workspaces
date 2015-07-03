@@ -1,6 +1,5 @@
 package signsocket;
-import signsocket.CLog.CLogType;
-
+import java.io.IOException;
 
 import com.google.gson.Gson;
 
@@ -11,6 +10,9 @@ public class SocketMessage
 	public String Message;
 	public String Package;
 	public String[] m_splits;
+	public StringBuilder strbuilder =  new StringBuilder();
+	
+	//private AppContext app;
 	//
 	// 序列化： 
 	//　　JsonConvert.SerializeObject（string）； 
@@ -47,11 +49,44 @@ public class SocketMessage
         {
             this.Head = this.m_splits[0];
             this.Length = Integer.parseInt(this.m_splits[1]);
-            this.Message = this.m_splits[2];
+            if(this.m_splits[2].length() >= this.Length)		// 粘包
+            {
+            	this.Message = this.m_splits[2].substring(0, this.Length);
+            }
+            else		// 丢包
+            {
+            	int currLen = this.m_splits[2].length();
+            	int recvLen;
+            	this.strbuilder.append(this.m_splits[2].substring(0, currLen));      
+            	
+            	while(currLen < this.Length)
+            	{
+            		try {
+
+            			recvLen = SocketClient.instance().receiveMessage( );
+            			String newbuf = new String(SocketClient.m_recvBuffer).substring(0, recvLen).trim();
+            			strbuilder.append(new String(SocketClient.m_recvBuffer).substring(0, recvLen).trim());
+            			currLen += recvLen;
+            			
+            		} catch (IOException e) {
+						// TODO 自动生成的 catch 块
+						e.printStackTrace();
+					}
+            	}
+            	if(currLen > this.Length)
+            	{
+            		this.Message = strbuilder.substring(0, this.Length).toString();
+            	}
+            	else
+            	{
+            		this.Message = strbuilder.substring(0, this.Length).toString();
+            	}
+            }
         }
         else
         {
             this.Head = this.m_splits[0]; 
         }
+        System.out.println(Message);
     }
 }

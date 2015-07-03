@@ -118,6 +118,13 @@ public class SocketClient
         }
     }
     
+    // 处理丢包问题的接收函数
+    public int receiveMessage() throws IOException
+    {
+		int len = in.read(m_recvBuffer, 0, 1024 * 1024);
+		
+		return len;  
+    }
 
     
 	public void  initialize() throws IOException
@@ -175,9 +182,9 @@ public class SocketClient
 	}
 	
 	// 查询未签字的信息
-	public List<SHDJContract> QueryUnsignedHDJContract(String employeeId)
+	public ArrayList<SHDJContract> QueryUnsignedHDJContract(int employeeId)
 	{
-		List<SHDJContract> contracts = new ArrayList<SHDJContract>();
+		ArrayList<SHDJContract> contracts = new ArrayList<SHDJContract>();
 	    Type type = new TypeToken<ArrayList<SHDJContract>>(){}.getType(); 
 		try
 		{
@@ -186,7 +193,7 @@ public class SocketClient
 			
 			out.write(message.Package.getBytes("utf-8"));
 			out.flush();
-			
+
 			in.read(m_recvBuffer, 0, 1024 * 1024);
 			
 			System.out.println(m_recvBuffer);
@@ -197,7 +204,10 @@ public class SocketClient
 			{			
 				//  数据头是查询成功
 				Gson gson = new Gson();
-				contracts = gson.fromJson(message.Message, type);				
+
+				contracts = gson.fromJson(message.Message, type);	
+				return contracts;
+
 			}
 			else
 			{
@@ -215,9 +225,9 @@ public class SocketClient
 	}
 	
 	// 查询已经签字的会签单信息
-	public List<SHDJContract> QuerySignedHDJContract(String employeeId)
+	public ArrayList<SHDJContract> QuerySignedHDJContract(int employeeId)
 	{
-		List<SHDJContract> contracts = new ArrayList<SHDJContract>();
+		ArrayList<SHDJContract> contracts = new ArrayList<SHDJContract>();
 	    Type type = new TypeToken<ArrayList<SHDJContract>>(){}.getType(); 
 		try
 		{

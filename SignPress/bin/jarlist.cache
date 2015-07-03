@@ -1,7 +1,7 @@
 # cache for current jar dependency. DO NOT EDIT.
 # format is <lastModified> <length> <SHA-1> <path>
 # Encoding is UTF-8
-1435585267859 1184450 e19387dc3b060af32f5401f84fbe246635256955 G:\[B]CodeRuntimeLibrary\[B]MyJavaSource\Workspaces\appcompat_v7\libs\android-support-v4.jar
-1435585266250 1184450 e19387dc3b060af32f5401f84fbe246635256955 G:\[B]CodeRuntimeLibrary\[B]MyJavaSource\Workspaces\SignPress\libs\android-support-v4.jar
-1435585267899 190418 973e832af433b44c3ed11c426f2f390b29f3f3f8 G:\[B]CodeRuntimeLibrary\[B]MyJavaSource\Workspaces\appcompat_v7\libs\gson-2.2.4.jar
-1435585266263 190418 973e832af433b44c3ed11c426f2f390b29f3f3f8 G:\[B]CodeRuntimeLibrary\[B]MyJavaSource\Workspaces\SignPress\libs\gson-2.2.4.jar
+1435665966682 190418 973e832af433b44c3ed11c426f2f390b29f3f3f8 E:\SignPress\Workspaces\SignPress\libs\gson-2.2.4.jar
+1435665966906 190418 973e832af433b44c3ed11c426f2f390b29f3f3f8 E:\SignPress\Workspaces\appcompat_v7\libs\gson-2.2.4.jar
+1435665966679 1184450 e19387dc3b060af32f5401f84fbe246635256955 E:\SignPress\Workspaces\SignPress\libs\android-support-v4.jar
+1435665966897 1184450 e19387dc3b060af32f5401f84fbe246635256955 E:\SignPress\Workspaces\appcompat_v7\libs\android-support-v4.jar

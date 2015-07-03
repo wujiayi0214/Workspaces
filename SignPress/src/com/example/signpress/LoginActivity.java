@@ -3,11 +3,12 @@ package com.example.signpress;
 //import android.support.v7.app.ActionBarActivity;
 
 import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+
+
 
 
 
@@ -29,6 +30,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -85,10 +87,10 @@ public class LoginActivity extends Activity
     
 	
 	
-	private SocketClient m_socketClient;
-	
 	public static Context s_context;
 
+	
+	private AppContext app;
 	@Override
 	@SuppressLint("NewApi")
 	protected void onCreate(Bundle savedInstanceState) {
@@ -148,9 +150,15 @@ public class LoginActivity extends Activity
 					String username = editTextUsername.getText().toString();
 					String password = editTextPassword.getText().toString();
 					
-
+					if(username.equals("")||password.equals(""))
+					{
+						Toast.makeText(LoginActivity.this, "用户名或者密码不能为空", Toast.LENGTH_SHORT).show();
+					}
+					else
+					{
 					User user = new User(username, password);
-					AppContext app =  new AppContext();
+			        app=(AppContext)getApplication();
+
 					app.setUser(user);
 					
 	
@@ -158,11 +166,12 @@ public class LoginActivity extends Activity
 					//if (NetManager.instance().isNetworkConnected())
 					{
 						//SocketClient client = SocketClient.instance();
-						SocketMessage message = new SocketMessage(ClientRequest.LOGIN_REQUEST, user);
+						//SocketMessage message = new SocketMessage(ClientRequest.LOGIN_REQUEST, user);
 						Employee employee;
 						employee = SocketClient.instance().loginRequest(user);
 						if(employee.Id != -1 && employee.CanSign == 1)
 						{
+							app.setEmployee(employee);
 							Intent intent = new Intent();  
 							//设置Intent的class属性，跳转到SecondActivity  
 							intent.setClass(LoginActivity.this, TestActivity.class);  
@@ -175,14 +184,16 @@ public class LoginActivity extends Activity
 						else if(employee.Id != -1 && employee.CanSign != 1)
 						{
 							// 使用弹窗，告诉用户没有签字权限无法登录
-							
+							Toast.makeText(LoginActivity.this, "您没有签字权限，无法登陆", Toast.LENGTH_SHORT).show();
 						}
 						else
 						{
 							// 使用弹窗，告诉用户输入的用户名或者密码有误
+							Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
 						}
 					
 		              }
+					}
 		          }
 
 		          //该方法运行在后台线程中，因此不能在该线程中更新UI，UI线程为主线程
@@ -195,7 +206,6 @@ public class LoginActivity extends Activity
 		        
 		      }
 		});
-
 	}
 
 	@Override
